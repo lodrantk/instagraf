@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>instagraf</title>
+    <style type="text/css">
+        @import "static/style.css";
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="center">
+            <h1> instagraf</h1>
+            <div class="buttons">
+                <input type="file" accept=".csv" id="upload" hidden />
+                <label for="upload">iz .csv datoteke</label>
+                <button class="btn2">ročni vnos</button>
+                <button class="btn2">formula</button>
+            </div>
+            <form method="post" action="/graf">
+                <br>
+                <label for="function">funkcija f(x) =</label>
+                <input type="text" id="function" name="function" ><br>
+                <label for="fname">naslov:</label>
+                <input type="text" id="fname" name="fname" ><br>
+ 
+                <label for="xlabel">oznaka x osi:</label>
+                <input type="text" id="xlabel" name="xlabel" ><br>
+                <label for="ylabel">oznaka y osi:</label>
+                <input type="text" id="ylabel" name="ylabel"><br>
+
+                <label for="xmin">spodnja meja x:</label>
+                <input type="text" id="xmin" name="xmin">
+                <label for="xmax">zgornja meja x:</label>
+                <input type="text" id="xmax" name="xmax"><br>
+                <input type="checkbox" id="legend" name="legend">
+                <label for="legend">prikaži legendo</label><br>
+
+                <input type="checkbox" id="grid" name="grid">
+                <label for="grid">prikaži mrežo</label><br>
+
+                <input type="checkbox" id="usetex" name="usetex">
+                <label for="usetex">uporabi Latex</label><br>
+
+                <label for="color">barva funkcije:</label>
+                <input type="color" id="color" name="color" value="#ff0000"><br><br>
+
+                
+                <label for="linewidth">debelina krivulje:</label>
+                <input type="range" id="linewidth" name ="linewidth" value="2" min="1" max="8" oninput="this.nextElementSibling.value = this.value">
+                <output>2</output>
+
+                <label for="fontsize">velikost črk:</label>
+                <input type="range" id="fontsize" name ="fontsize" value="15" min="5" max="50" oninput="this.nextElementSibling.value = this.value">
+                <output>15</output>
+
+                <label for="fmt">stil oznake:</label>
+                <select name="fmt" id="fmt">
+                    <option value="." >pika</option>
+                    <option value="o" >krožec</option>
+                    <option value="x" >križec</option>
+                    <option value="+"  >plus</option>
+                    <option value="^"  >trikotnik</option>
+                    <option value="s"  >kvadrat</option>
+                    <option value="D"  >romb</option>
+                    <option value="*"  >zvezdica</option>
+                  </select>
+
+                  <label for="linestyle">stil črte:</label>
+                    <select name="linestyle" id="linestyle">
+                    <option value='-' selected>polna</option>
+                    <option value="--" >črtkana</option>
+                    <option value=":" >pike</option>
+                </select>
+ 
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>

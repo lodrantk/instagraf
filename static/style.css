@@ -1,0 +1,86 @@
+h2 {
+    color: red;
+}
+*{
+   margin: 0;
+   padding: 0;
+   font-family: 'Roboto', sans-serif; 
+}
+.wrapper{
+
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+*{
+	padding: 0;
+	margin: 0;
+}
+.wrapper{
+	background: white;/*url(isaac-smith-6EnTPvPPL6I-unsplash.png) no-repeat; */
+    background-size: 110%;
+    height: 100vh;
+    background-position: -130px 0px;
+    background-attachment: fixed;
+}
+
+.wrapper .center{
+	position: absolute;
+	left: 50%;
+	top: 55%;
+	transform: translate(-50%, -50%);
+	font-family: sans-serif;
+	user-select: none;
+}
+.center h1{
+	color: salmon;
+	font-size: 70px;
+	width: 900px;
+	font-weight: bold;
+    text-align: center;
+}
+.center h2{
+	color: white;
+	font-size: 70px;
+	font-weight: bold;
+	margin-top: 10px;
+	width: 885px;
+	text-align: center;
+}
+
+.center h3{
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 10px;
+	width: 885px;
+	text-align: center;
+}
+.center .buttons{
+    margin: 32px 0px;
+    display: flex;
+    justify-content: center;
+}
+.buttons button, .buttons label{
+    height: 50px;
+    line-height: 50px;
+	width: 150px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #ffffff;
+	background: rgb(48, 154, 219);
+	outline: none;
+	cursor: pointer;
+	border: 0px solid rgb(42, 135, 192);
+	border-radius: 25px;
+    transition: .4s;
+    text-align: center;
+}
+
+.buttons .btn2{
+    margin-left: 25px;
+}
+
+
+.buttons button:hover, .buttons label:hover{
+	background: rgb(42, 135, 192)
+}
