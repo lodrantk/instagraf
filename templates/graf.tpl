@@ -4,24 +4,31 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>instagraf</title>
-    <style type="text/css">
-        @import "static/style.css";
-    </style>
+    <link rel="stylesheet" href="static/style.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
 </head>
 
 <body>
     <div class="wrapper">
-
         <div class="center">
-            <h1> instagraf</h1>
-            <div class="buttons">
-                <input type="file" accept=".csv" id="upload" hidden />
-                <label for="upload">iz .csv datoteke</label>
-                <button class="btn2">ročni vnos</button>
-                <button class="btn2">formula</button>
+            <h2> tvoj instagraf</h2>
+            <div class="img">
+                <img src="graf/{{name}}.png" alt="slika grafa" style="width:500px;">
             </div>
 
+            <div class="buttons">
+                <a href="graf/{{name}}.pdf" download="instagraf">
+                    <button>prenesi .pdf</button>
+                </a>
+                <a href="graf/{{name}}.png" download="instagraf">
+                    <button class="btn2">prenesi .png</button></a>
+            </div>
+            <div class="buttons">
+                <a href="/">
+                    <button class="btn4">pojdi nazaj</button>
+                </a>
+            </div>
 
             <div id="containform" class="container">
                 <form method="post" action="/graf">
@@ -95,7 +102,7 @@
                         <div class="col3">
                             <label for="marker">tip oznake:</label>
                             <select name="marker" id="marker">
-                                <option value=None>brez</option>
+                                <option value="">brez</option>
                                 <option value=".">pika</option>
                                 <option value="o">krožec</option>
                                 <option value="x">križec</option>
@@ -119,7 +126,8 @@
                             <div class="dropdown">
                                 <label for="linestyle">tip črte:</label>
                                 <select name="linestyle" id="linestyle">
-                                    <option value='-' selected>polna</option>
+                                    <option value="">brez</option>
+                                    <option value="-" selected>polna</option>
                                     <option value="--">črtkana</option>
                                     <option value=":">pike</option>
                                 </select>
@@ -153,20 +161,18 @@
                     </div>
 
 
-            </div>
-            <div class="buttons">
-                <input type="submit" id="narisi" value="nariši graf" hidden />
-                <label for="narisi">nariši graf</label>
+
+                    <div class="buttons">
+                        <input type="submit" id="narisi" value="nariši graf" hidden />
+                        <label for="narisi">nariši graf</label>
+                    </div>
+
+
+
+                </form>
             </div>
         </div>
-
-
-
     </div>
-    </form>
-    </div>
-    </div>
-
 
 
 </body>

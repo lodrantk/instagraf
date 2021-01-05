@@ -5,7 +5,7 @@ from graf_funkcije import narisi
 
 @get('/')
 def zacetek():
-    return bottle.template("templates/index.html")
+    return bottle.template("templates/index.tpl")
 
 
 @get('/static/<filename>.css')
@@ -42,10 +42,11 @@ def graf_funkcije():
     usetex = request.forms.get("usetex")
     marker = request.forms.get("marker")
 
+    print(title)
     name = narisi(function, xmin, xmax, title, legend, xlabel, ylabel,
                   color, linewidth, fontsize, linestyle, grid, usetex, marker)
 
-    return bottle.template("templates/graf.tpi", name=name)
+    return bottle.template("templates/graf.tpl", name=name)
 
 
 

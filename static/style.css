@@ -1,20 +1,14 @@
-h2 {
-    color: red;
-}
-
-* {
+body {
+    box-sizing: border-box;
+    padding: 0px;
     margin: 0;
-    padding: 0;
+    font-size: 18px;
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 1.4rem;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
-* {
-    padding: 0;
-    margin: 0;
-}
-
-.wrapper {
+.page {
     background: url(isaac-smith-6EnTPvPPL6I-unsplash.png) no-repeat;
     background-size: 110%;
     height: 120vh;
@@ -22,16 +16,8 @@ h2 {
     background-attachment: fixed;
 }
 
-.wrapper .center {
-    position: absolute;
-    left: 50%;
-    top: 55%;
-    transform: translate(-50%, -50%);
-    font-family: sans-serif;
-    user-select: none;
-}
-
-.center h1 {
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+h1 {
     color: white;
     font-size: 70px;
     width: 900px;
@@ -39,7 +25,7 @@ h2 {
     text-align: center;
 }
 
-.center h2 {
+h2 {
     color: white;
     font-size: 50px;
     font-weight: bold;
@@ -49,7 +35,7 @@ h2 {
     text-align: center;
 }
 
-.center h3 {
+h3 {
     color: black;
     font-size: 30px;
     font-weight: bold;
@@ -58,13 +44,13 @@ h2 {
     text-align: center;
 }
 
-.center img {
+img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.center .buttons {
+.buttons {
     margin: 32px 0px;
     display: flex;
     justify-content: center;
@@ -76,13 +62,14 @@ h2 {
     line-height: 50px;
     width: 150px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 400;
     color: #ffffff;
-    background: rgb(48, 154, 219);
+    background: dodgerblue;
     outline: none;
     cursor: pointer;
     border: 0px solid rgb(42, 135, 192);
     border-radius: 15px;
+    opacity: 1;
     transition: .4s;
     text-align: center;
 }
@@ -101,66 +88,36 @@ h2 {
 
 .buttons button:hover,
 .buttons label:hover {
-    background: rgb(42, 135, 192)
+    background: rgb(0, 128, 255);
 }
 
 input[type=text] {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: #cae2ec;
+    background-color: rgb(190, 223, 255);
     border-radius: 4px;
+    opacity: 0.7;
     border: 0px;
     color: rgb(0, 0, 0);
     resize: vertical;
 }
 
 input[type=text]:focus {
-    background-color: lightblue;
+    opacity: 1;
 }
 
 .container {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 20px 20px 20px;
 }
 
 .container label {
-    padding: 15px 12px 12px 0;
+    padding: 15px 5px 5px 0;
     display: inline-block;
-}
-
-
-/* Floating column for labels: 25% width */
-
-.col-lbl {
-    float: left;
-    width: 20%;
-    margin-top: 6px;
-}
-
-
-/* Floating column for inputs: 75% width */
-
-.col-txt {
-    float: left;
-    width: 30%;
-    margin-top: 6px;
-}
-
-.col3 {
-    float: left;
-    width: 20%;
-    margin-top: 6px;
-    padding: 0px 100px 0px;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 .container .check {
@@ -169,7 +126,6 @@ input[type=text]:focus {
     padding-left: 35px;
     margin-bottom: 8px;
     cursor: pointer;
-    font-size: 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -196,7 +152,8 @@ input[type=text]:focus {
     left: 0;
     height: 20px;
     width: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(190, 223, 255);
+    opacity: 0.7;
     border-radius: 3px;
 }
 
@@ -204,7 +161,7 @@ input[type=text]:focus {
 /* On mouse-over, add a grey background color */
 
 .check:hover input~.checkmark {
-    background-color: #ccc;
+    opacity: 1;
 }
 
 
@@ -214,54 +171,22 @@ input[type=text]:focus {
     background-color: dodgerblue;
 }
 
-
-/* Show the checkmark when checked */
-
-.container input:checked~.checkmark:after {
-    display: block;
-}
-
-
-/* Style the checkmark/indicator */
-
-.container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.col-txt .slidecontainer {
-    width: 100%;
-    /* Width of the outside container */
-}
-
-
-/* The slider itself */
-
 .slider {
     -webkit-appearance: none;
     /* Override default CSS styles */
     appearance: none;
-    width: 100%;
-    /* Full-width */
     height: 25px;
     /* Specified height */
-    background: lightblue;
-    /* Grey background */
-    outline: none;
-    /* Remove outline */
-    opacity: 0.7;
-    /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s;
-    /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: rgb(190, 223, 255);
     border-radius: 4px;
+    opacity: 0.7;
+    border: 0px;
+    resize: vertical;
 }
 
 
@@ -295,7 +220,7 @@ input[type=text]:focus {
     /* Set a specific slider handle width */
     height: 25px;
     /* Slider handle height */
-    background: #4CAF50;
+    background: dodgerblue;
     /* Green background */
     cursor: pointer;
     /* Cursor on hover */

@@ -4,12 +4,11 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 from matplotlib import rcParams
 from uuid import uuid4
-from sympy.utilities.lambdify import lambdify
 from asteval import Interpreter
 
 def narisi(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth, fontsize, linestyle, grid, usetex, marker):
     plt.clf()
-    print(marker)
+    print(grid)
 
     if usetex == "on":
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
@@ -42,8 +41,8 @@ def narisi(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth
 
     if legend == "on":
         plt.legend(loc="best")
-    if grid == "on":
-        plt.grid
+    if str(grid) == "on":
+        plt.grid()
 
     name = uuid4().hex
 
