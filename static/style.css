@@ -1,86 +1,302 @@
 h2 {
     color: red;
 }
-*{
-   margin: 0;
-   padding: 0;
-   font-family: 'Roboto', sans-serif; 
-}
-.wrapper{
 
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
-*{
-	padding: 0;
-	margin: 0;
+* {
+    padding: 0;
+    margin: 0;
 }
-.wrapper{
-	background: white;/*url(isaac-smith-6EnTPvPPL6I-unsplash.png) no-repeat; */
+
+.wrapper {
+    background: url(isaac-smith-6EnTPvPPL6I-unsplash.png) no-repeat;
     background-size: 110%;
-    height: 100vh;
+    height: 120vh;
     background-position: -130px 0px;
     background-attachment: fixed;
 }
 
-.wrapper .center{
-	position: absolute;
-	left: 50%;
-	top: 55%;
-	transform: translate(-50%, -50%);
-	font-family: sans-serif;
-	user-select: none;
-}
-.center h1{
-	color: salmon;
-	font-size: 70px;
-	width: 900px;
-	font-weight: bold;
-    text-align: center;
-}
-.center h2{
-	color: white;
-	font-size: 70px;
-	font-weight: bold;
-	margin-top: 10px;
-	width: 885px;
-	text-align: center;
+.wrapper .center {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    user-select: none;
 }
 
-.center h3{
-	color: white;
-	font-size: 30px;
-	font-weight: bold;
-	margin-top: 10px;
-	width: 885px;
-	text-align: center;
+.center h1 {
+    color: white;
+    font-size: 70px;
+    width: 900px;
+    font-weight: bold;
+    text-align: center;
 }
-.center .buttons{
+
+.center h2 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 885px;
+    text-align: center;
+}
+
+.center h3 {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    width: 885px;
+    text-align: center;
+}
+
+.center img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center .buttons {
     margin: 32px 0px;
     display: flex;
     justify-content: center;
 }
-.buttons button, .buttons label{
+
+.buttons button,
+.buttons label {
     height: 50px;
     line-height: 50px;
-	width: 150px;
-	font-size: 18px;
-	font-weight: 600;
-	color: #ffffff;
-	background: rgb(48, 154, 219);
-	outline: none;
-	cursor: pointer;
-	border: 0px solid rgb(42, 135, 192);
-	border-radius: 25px;
+    width: 150px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgb(48, 154, 219);
+    outline: none;
+    cursor: pointer;
+    border: 0px solid rgb(42, 135, 192);
+    border-radius: 15px;
     transition: .4s;
     text-align: center;
 }
 
-.buttons .btn2{
+.buttons .btn2 {
     margin-left: 25px;
 }
 
+.buttons .btn4 {
+    background: rgb(61, 61, 61);
+}
 
-.buttons button:hover, .buttons label:hover{
-	background: rgb(42, 135, 192)
+.buttons .btn4:hover {
+    background: black
+}
+
+.buttons button:hover,
+.buttons label:hover {
+    background: rgb(42, 135, 192)
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #cae2ec;
+    border-radius: 4px;
+    border: 0px;
+    color: rgb(0, 0, 0);
+    resize: vertical;
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.container label {
+    padding: 15px 12px 12px 0;
+    display: inline-block;
+}
+
+
+/* Floating column for labels: 25% width */
+
+.col-lbl {
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+}
+
+
+/* Floating column for inputs: 75% width */
+
+.col-txt {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+}
+
+.col3 {
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+    padding: 0px 100px 0px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container .check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 10;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.check:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.check input:checked~.checkmark {
+    background-color: dodgerblue;
+}
+
+
+/* Show the checkmark when checked */
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.col-txt .slidecontainer {
+    width: 100%;
+    /* Width of the outside container */
+}
+
+
+/* The slider itself */
+
+.slider {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    /* Full-width */
+    height: 25px;
+    /* Specified height */
+    background: lightblue;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 4px;
+}
+
+
+/* Mouse-over effects */
+
+.slider:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+}
+
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: dodgerblue;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+    border-radius: 3px;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #4CAF50;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
 }
