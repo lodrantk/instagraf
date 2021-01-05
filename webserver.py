@@ -1,10 +1,29 @@
 import bottle
-from bottle import request
+from bottle import request, get, static_file
 from graf_funkcije import narisi
- 
-@bottle.get('/')
+
+
+@get('/')
 def zacetek():
-    return bottle.template("index.html")
+    return bottle.template("templates/index.html")
+
+
+@get('/static/<filename>.css')
+def stylesheets(filename):
+    return static_file('{}.css'.format(filename), root='static')
+
+@get('/graf/<filename>.png')
+def pnggraphs(filename):
+    return static_file('{}.png'.format(filename), root='output')
+
+@get('/static/<filename>.png')
+def pngimg(filename):
+    return static_file('{}.png'.format(filename), root='static')
+
+@get('/graf/<filename>.pdf')
+def pdfgraphs(filename):
+    return static_file('{}.pdf'.format(filename), root='output')
+
 
 @bottle.post('/graf')
 def graf_funkcije():
@@ -21,7 +40,13 @@ def graf_funkcije():
     linestyle = request.forms.get("linestyle")
     grid = request.forms.get("grid")
     usetex = request.forms.get("usetex")
+    marker = request.forms.get("marker")
 
-    narisi(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth, fontsize, linestyle, grid, usetex)
+    name = narisi(function, xmin, xmax, title, legend, xlabel, ylabel,
+                  color, linewidth, fontsize, linestyle, grid, usetex, marker)
+
+    return bottle.template("templates/graf.tpi", name=name)
+
+
 
 bottle.run(debug=True, reloader=True)

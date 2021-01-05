@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>instagraf</title>
+    <style type="text/css">
+        @import "static/style.css";
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="center">
+            <h2> tvoj instagraf</h2>
+            <div class="img">
+                <img src="graf/{{name}}.png" alt="slika grafa" style="width:500px;">
+            </div>
+
+            <div class="buttons">
+                <a href="graf/{{name}}.pdf" download="instagraf">
+                    <button>prenesi .pdf</button>
+                    <a href="graf/{{name}}.png" download="instagraf">
+                        <button class="btn2">prenesi .png</button>
+            </div>
+            <div class="buttons">
+                <a href="/">
+                    <button class="btn4">pojdi nazaj</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
