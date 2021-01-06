@@ -17,7 +17,6 @@ def stylesheets(filename):
 def pnggraphs(filename):
     return static_file('{}.png'.format(filename), root='output')
 
-
 @get('/static/<filename>.png')
 def pngimg(filename):
     return static_file('{}.png'.format(filename), root='static')
@@ -45,11 +44,10 @@ def graf_funkcije():
     usetex = request.forms.get("usetex")
     marker = request.forms.get("marker")
 
-    print(title)
     name = narisi(function, xmin, xmax, title, legend, xlabel, ylabel,
                   color, linewidth, fontsize, linestyle, grid, usetex, marker)
 
     return bottle.template("templates/graf.tpl", name=name, function=function, title=title, xmin=xmin, xmax=xmax, legend=(legend == "on"), ylabel=ylabel, xlabel=xlabel, color=color, linewidth=linewidth, fontsize=fontsize, linestyle=linestyle, grid=grid, usetex=usetex, marker=marker)
 
 
-bottle.run(debug=True, reloader=True)
+bottle.run(debug=True, host="0.0.0.0", port=80, reloader=True)

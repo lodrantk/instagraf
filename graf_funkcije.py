@@ -1,5 +1,4 @@
 import numpy as np
-from sympy.parsing.sympy_parser import parse_expr
 import matplotlib.pyplot as plt
 from matplotlib import rc
 from matplotlib import rcParams
@@ -8,15 +7,12 @@ from asteval import Interpreter
 
 def narisi(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth, fontsize, linestyle, grid, usetex, marker):
     plt.clf()
-    print(grid)
 
     if usetex == "on":
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
         rc('text', usetex=True)
         if xlabel != "" or ylabel != "":
             plt.gcf().subplots_adjust(bottom=0.2, left=0.2)
-    
-    
 
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
