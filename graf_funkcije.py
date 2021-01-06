@@ -13,7 +13,10 @@ def narisi(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth
     if usetex == "on":
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
         rc('text', usetex=True)
-        plt.gcf().subplots_adjust(bottom=0.2, left=0.2)
+        if xlabel != "" or ylabel != "":
+            plt.gcf().subplots_adjust(bottom=0.2, left=0.2)
+    
+    
 
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
@@ -26,7 +29,7 @@ def narisi(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth
 
     aevalc = Interpreter()
 
-    exprc = aevalc.parse(function)
+    exprc = aevalc.parse(function.strip())
     aevalc.symtable['x'] = x
     y = aevalc.run(exprc)
 

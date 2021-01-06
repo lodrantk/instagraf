@@ -11,9 +11,18 @@ body {
 .page {
     background: url(isaac-smith-6EnTPvPPL6I-unsplash.png) no-repeat;
     background-size: 110%;
-    height: 120vh;
+    height: 150vh;
     background-position: -130px 0px;
     background-attachment: fixed;
+}
+
+.page .hero-headline {
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: 2px;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
@@ -48,12 +57,13 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding: 20px 20px 20px
 }
 
 .buttons {
-    margin: 32px 0px;
     display: flex;
     justify-content: center;
+    padding: 20px 20px 20px
 }
 
 .buttons button,
@@ -105,6 +115,13 @@ input[type=text] {
     resize: vertical;
 }
 
+input[type=color] {
+    width: 10%;
+    padding: 3px;
+    margin: 12px 0;
+    border: none;
+}
+
 input[type=text]:focus {
     opacity: 1;
 }
@@ -113,6 +130,8 @@ input[type=text]:focus {
     border-radius: 10px;
     background-color: #f2f2f2;
     padding: 20px 20px 20px;
+    /* flex-flow: column wrap;
+align-content: flex-start; */
 }
 
 .container label {
@@ -224,4 +243,30 @@ input[type=text]:focus {
     /* Green background */
     cursor: pointer;
     /* Cursor on hover */
+}
+
+.select-css {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    line-height: 1;
+    padding: 0.6em 1em .5em .8em;
+    width: 100%;
+    max-width: 100%;
+    /* useful when width is set to anything other than 100% */
+    box-sizing: border-box;
+    margin: 0.6em 0.5em;
+    border: 0px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgb(190, 223, 255);
+    border-radius: 4px;
+    opacity: 0.7;
+}
+
+.select-css:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
 }

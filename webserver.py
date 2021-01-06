@@ -12,13 +12,16 @@ def zacetek():
 def stylesheets(filename):
     return static_file('{}.css'.format(filename), root='static')
 
+
 @get('/graf/<filename>.png')
 def pnggraphs(filename):
     return static_file('{}.png'.format(filename), root='output')
 
+
 @get('/static/<filename>.png')
 def pngimg(filename):
     return static_file('{}.png'.format(filename), root='static')
+
 
 @get('/graf/<filename>.pdf')
 def pdfgraphs(filename):
@@ -46,8 +49,7 @@ def graf_funkcije():
     name = narisi(function, xmin, xmax, title, legend, xlabel, ylabel,
                   color, linewidth, fontsize, linestyle, grid, usetex, marker)
 
-    return bottle.template("templates/graf.tpl", name=name)
-
+    return bottle.template("templates/graf.tpl", name=name, function=function, title=title, xmin=xmin, xmax=xmax, legend=(legend == "on"), ylabel=ylabel, xlabel=xlabel, color=color, linewidth=linewidth, fontsize=fontsize, linestyle=linestyle, grid=grid, usetex=usetex, marker=marker)
 
 
 bottle.run(debug=True, reloader=True)
