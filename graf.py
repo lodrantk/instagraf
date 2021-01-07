@@ -6,7 +6,23 @@ from matplotlib import rcParams
 import pandas
 
 
-def narisi_cvs(file, title, legend, xlabel, ylabel, color, fitcolor, linewidth, fontsize, linestyle, grid, usetex, marker)
+"""
+- file
+- fontsize, usetex
+- title, legend, xlabel, ylabel
+- linecolor, linestyle
+- markercolor, marker
+- fittanje premice: linefit, fitcolor
+- grid
+- graphtype: scatter, line, bar, pie (x je lahko tudi string)
+... lahko se pa grem fizika in omogočam le plottanje številk in razširim fittanje premice na fittanje poljubne krivulje
+- errors: plt.errorbar; to fiziki rabimo
+- izberi kateri podatek je v katerem stolpcu (dropdown: x, y, xerr, yerr)
+- kaj pa plottanje več funkcij iz .csv hkrati ... 
+"""
+
+
+def narisi_cvs(file, title, legend, xlabel, ylabel, color, fitcolor, linewidth, fontsize, linestyle, grid, usetex, marker, graphtype):
 
     dat = pandas.read_csv(file)
     data = dat.to_numpy()
@@ -14,22 +30,22 @@ def narisi_cvs(file, title, legend, xlabel, ylabel, color, fitcolor, linewidth, 
     y = data[:, 1]
 
     if usetex == "on":
-            rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
-            rc('text', usetex=True)
-            if xlabel != "" or ylabel != "":
-                plt.gcf().subplots_adjust(bottom=0.2, left=0.2)
+        rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
+        rc('text', usetex=True)
 
-        rcParams['font.size'] = fontsize
-        rcParams['xtick.labelsize'] = fontsize
-        rcParams['ytick.labelsize'] = fontsize
+    rcParams['font.size'] = fontsize
+    rcParams['xtick.labelsize'] = fontsize
+    rcParams['ytick.labelsize'] = fontsize
 
-    if graphtype == "line": 
+    if graphtype == "line":
         # if "errors" == "on":
         #     plt.errorbar(x, y, xerr=xerr, yerr=yerr, color=color, linestyle=linestyle, linewidth=linewidth)
         if marker != "":
-            plt.plot(x, y, color=color, linestyle=linestyle, linewidth=linewidth, marker=marker, markersize=markersize)
+            plt.plot(x, y, color=color, linestyle=linestyle,
+                     linewidth=linewidth, marker=marker, markersize=markersize)
         else:
-            plt.plot(x, y, color=color, linestyle=linestyle, linewidth=linewidth)
+            plt.plot(x, y, color=color, linestyle=linestyle,
+                     linewidth=linewidth)
 
     if graphtype == "scatter":
         # if "errors" == "on":
@@ -40,10 +56,13 @@ def narisi_cvs(file, title, legend, xlabel, ylabel, color, fitcolor, linewidth, 
         def premica(x, k, n):
             return k*x + n
 
+        # kaj naredi sigma če je yerr prazen
         fitpar, fitcov = curve_fit(premica, xdata=x, ydata=y, sigma=yerr)
         k, n = fitpar
-        oznaka = '$ y = kx  + n$\n$k = %.4f \pm %.4f$, \n$ n = %.4f \pm %.4f$' % (fitpar[0], fitcov[0][0]**0.5, fitpar[1], fitcov[1][1]**0.5)
-        plt.plot(x, k*x + n, markersize=markersize, linewidth=linewidth, color=fitcolor, label=oznaka, zorder=-5)
+        oznaka = '$ y = kx  + n$\n$k = %.4f \pm %.4f$, \n$ n = %.4f \pm %.4f$' % (
+            fitpar[0], fitcov[0][0]**0.5, fitpar[1], fitcov[1][1]**0.5)
+        plt.plot(x, k*x + n, markersize=markersize, linewidth=linewidth,
+                 color=fitcolor, label=oznaka, zorder=-5)  # zorder ker hočem premico zadaj
 
     plt.ylabel(str(ylabel))
     plt.xlabel(str(xlabel))
@@ -61,6 +80,3 @@ def narisi_cvs(file, title, legend, xlabel, ylabel, color, fitcolor, linewidth, 
     plt.savefig("output/" + name + ".png", dpi=300)
     plt.savefig("output/" + name + ".pdf")
     return name
-
-
-

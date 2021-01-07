@@ -4,7 +4,7 @@ from graf_funkcije import narisi
 
 
 @get('/')
-def zacetek():
+def zacetna():
     return bottle.template("templates/index.tpl")
 
 
@@ -16,6 +16,7 @@ def stylesheets(filename):
 @get('/graf/<filename>.png')
 def pnggraphs(filename):
     return static_file('{}.png'.format(filename), root='output')
+
 
 @get('/static/<filename>.png')
 def pngimg(filename):
