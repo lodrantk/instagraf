@@ -3,22 +3,14 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     line-height: 1.4rem;
-    background: url(background_img.jpg) no-repeat;
+    background: url(background_img.jpg);
     background-size: cover;
+
 }
-
-
 .page {
-    height: 110vh;
-    background-position: 0px 0px;
+    height: 100%;
     background-attachment: fixed;
-    align-items: center;
-    justify-content: center;
 
-}
-
-.page .extended{
-    height: 150vh;
 }
 
 .page .hero-headline {
@@ -108,6 +100,19 @@ img {
 
 .uploadbutton label{
     background: rgb(231, 130, 15);
+    width: 200px;
+}
+.uploadname label{
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 20px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #ffffff;
+    background: transparent;
+    outline: none;
+
 }
 
 .buttons button:hover, .buttons label:hover{
@@ -117,6 +122,7 @@ img {
 .uploadbutton label:hover{
     background: rgb(212, 113, 0);
 }
+
 
 input[type=text] {
     width: 100%;
@@ -133,7 +139,7 @@ input[type=text] {
 }
 
 input[type=color] {
-    width: 10%;
+    width: 50px;
     padding: 3px;
     margin: 12px 0;
     border: none;
@@ -146,13 +152,11 @@ input[type=text]:focus {
 .container {
     border-radius: 10px;
     background-color: #f2f2f2;
-    padding: 20px 50px 20px 20px;
-    /* flex-flow: column wrap;
-align-content: flex-start; */
+    padding: 20px;
 }
 
 .container label {
-    padding: 15px 5px 5px 0;
+    padding: 15px 5px 5px 10px;
     display: inline-block;
 }
 
@@ -263,24 +267,17 @@ align-content: flex-start; */
 }
 
 .select-css {
-    display: block;
-    font-size: 15px;
-    font-weight: 400;
-    color: rgb(0, 0, 0);
-    line-height: 1;
-    padding: 0.6em 1em .5em .8em;
     width: 100%;
-    max-width: 100%;
-    /* useful when width is set to anything other than 100% */
+    padding: 8px;
+    margin: 8px 0;
     box-sizing: border-box;
-    margin: 0.6em 0.5em;
-    border: 0px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+    border: none;
     background-color: rgb(190, 223, 255);
     border-radius: 4px;
     opacity: 0.7;
+    border: 0px;
+    color: rgb(0, 0, 0);
+    resize: vertical;
 }
 
 .select-css:hover {

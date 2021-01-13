@@ -6,7 +6,8 @@
     <title>instagraf</title>
     <link rel="stylesheet" href="static/style.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"
+        type="text/css">
 </head>
 
 <body>
@@ -83,7 +84,8 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                     <div class="slidecontainer">
-                                        <input class="slider" type="range" id="linewidth" name="linewidth" value="2" min="1" max="8" oninput="this.nextElementSibling.value = this.value">
+                                        <input class="slider" type="range" id="linewidth" name="linewidth" value="2"
+                                            min="1" max="8" oninput="this.nextElementSibling.value = this.value">
                                         <!--  <output>2</output> -->
                                     </div>
                                 </div>
@@ -97,7 +99,8 @@
 
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                     <div class="slidecontainer">
-                                        <input class="slider" type="range" id="fontsize" name="fontsize" value="15" min="1" max="50" oninput="this.nextElementSibling.value = this.value">
+                                        <input class="slider" type="range" id="fontsize" name="fontsize" value="15"
+                                            min="5" max="30" oninput="this.nextElementSibling.value = this.value">
                                         <!-- <output>15</output> -->
                                     </div>
                                 </div>
@@ -107,24 +110,24 @@
 
                             <div class="row">
                                 <label for="legend" class="check">prikaži legendo
-                                                <input type="checkbox" id="legend" name="legend">
-                                                <span class="checkmark"></span>
-                                            </label>
+                                    <input type="checkbox" id="legend" name="legend">
+                                    <span class="checkmark"></span>
+                                </label>
 
                             </div>
 
                             <div class="row start-xs">
                                 <label class="check" for="grid">prikaži mrežo
-                                            <input type="checkbox" id="grid" name="grid">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                    <input type="checkbox" id="grid" name="grid">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
 
                             <div class="row">
                                 <label class="check" for="usetex">uporabi Latex
-                                        <input type="checkbox" id="usetex" name="usetex">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    <input type="checkbox" id="usetex" name="usetex">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
 
                             <div class="row">
@@ -137,12 +140,12 @@
                                 <label for="linestyle">tip črte</label>
                                 <div class="dropdown">
                                     <select class="select-css" name="linestyle" id="linestyle">
-                                                <option value="">brez</option>
-                                                <option value="-" selected>polna</option>
-                                                <option value="--">črtkana</option>
-                                                <option value=":">pike</option>
-                                
-                                            </select>
+                                        <option value="">brez</option>
+                                        <option value="-" selected>polna</option>
+                                        <option value="--">črtkana</option>
+                                        <option value=":">pike</option>
+
+                                    </select>
                                 </div>
                             </div>
 

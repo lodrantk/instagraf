@@ -42,10 +42,10 @@
                 <form method="post" action="/graph_func">
                     <div class="container col-xs-10 col-sm-10 col-md-7 col-lg-7">
                         <div class="row around-xs">
-                            <div class="row-xs-12 row-sm-12 col-md-7 col-lg-7">
+                            <div class="row-xs-12 row-sm-12 col-md-7 col-lg-7" >
                                 <div class="row start-xs">
-                                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                                        <label for="function">funkcija f(x) =</label>
+                                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" >
+                                        <label  for="function">funkcija f(x) =</label>
                                     </div>
 
                                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
@@ -123,15 +123,15 @@
                                     <div class="col-xs-7">
                                         <div class="slidecontainer">
                                             <input class="slider" type="range" id="fontsize" name="fontsize"
-                                                value="{{fontsize}}" min="1" max="50"
+                                                value="{{fontsize}}" min="5" max="30"
                                                 oninput="this.nextElementSibling.value = this.value">
-                                            <!-- <output>15</output> -->
+                                            <!--<output>{{fontsize}}</output> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row-xs-12 row-sm-12 col-md-4 col-lg-4">
+                            <div class="row-xs-12 row-sm-12 col-md-5 col-lg-5">
 
                                 <div class="row">
                                     <label for="legend" class="check">prikaži legendo
