@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from uuid import uuid4
 from matplotlib import rc
 from matplotlib import rcParams
-from pandas import read_csv  # new dependency
+from pandas import read_csv
 from scipy.optimize import curve_fit
 from matplotlib.ticker import ScalarFormatter
 
@@ -13,8 +13,8 @@ from matplotlib.ticker import ScalarFormatter
 - fontsize, usetex
 - title, legend, xlabel, ylabel
 - linecolor, linestyle, linewidth
-- markercolor, marker, makersize
-- fittanje premice: linefit, fitcolor
+- markercolor, marker
+- linefit, fitcolor
 - grid
 - graphtype: scatter, line, bar, pie (x je lahko tudi string?)
 ... lahko se pa grem fizika in omogočam le plottanje številk in razširim fittanje premice na fittanje poljubne krivulje
@@ -22,17 +22,21 @@ from matplotlib.ticker import ScalarFormatter
 - izberi kateri podatek je v katerem stolpcu (dropdown: x, y, xerr, yerr)
 - kaj pa plottanje več funkcij iz .csv hkrati ... 
 """
-
-
-def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor):
-    print(uploadfile)
+def get_data(uploadfile):
     dat = read_csv(uploadfile.file)
     data = dat.to_numpy()
     x = data[:, 0]
     y = data[:, 1]
+    return x, y
 
-    print(x)
-    print(y)
+
+def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor):
+    plt.clf()
+    rcParams['font.size'] = fontsize
+    rcParams['xtick.labelsize'] = fontsize
+    rcParams['ytick.labelsize'] = fontsize
+
+    x, y = get_data(uploadfile)
 
     # format numbers (ex. 1.56e-8)
     plt.ticklabel_format(style='sci', scilimits=(-3, 4), axis='both')
@@ -43,10 +47,6 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
     if usetex == "on":  # use default Latex font (serif)
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
         rc("text", usetex=True)
-
-    rcParams['font.size'] = fontsize
-    rcParams['xtick.labelsize'] = fontsize
-    rcParams['ytick.labelsize'] = fontsize
 
     if marker == "":
         plt.plot(x, y, c=linecolor, linestyle=linestyle,
@@ -81,15 +81,16 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
         plt.grid()
 
 
-    plt.tight_layout()  # poskuša ne odrezat oznak osi
+    plt.tight_layout()  # don't cut off axis labels
 
     name = uuid4().hex
 
     plt.savefig("output/" + name + ".png", dpi=300)
     plt.savefig("output/" + name + ".pdf")
-    print("Did it")
 
     return name
+
+
 
     # if graphtype == "line":
     #     # if "errors" == "on":
@@ -106,3 +107,5 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
     #     # if "errors" == "on":
     #     #     plt.errorbar(x, y, xerr=xerr, yerr=yerr, color=color, marker=marker, markersize=markersize)
     #     plt.scatter(x, y, c=markercolor, markersize=markersize, marker=marker)
+
+    #... line and scatter graphs are easily achived by customizing the marker and line params, no need to set specific graphtype?
