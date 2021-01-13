@@ -1,19 +1,24 @@
 body {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     line-height: 1.4rem;
+    background: url(background_img.jpg) no-repeat;
+    background-size: cover;
 }
 
+
 .page {
-    background: url(isaac-smith-6EnTPvPPL6I-unsplash.png) no-repeat;
-    background-size: 110%;
-    height: 150vh;
-    background-position: -130px 0px;
+    height: 110vh;
+    background-position: 0px 0px;
     background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.page .extended{
+    height: 150vh;
 }
 
 .page .hero-headline {
@@ -23,6 +28,7 @@ body {
     font-size: 5rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
+
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
@@ -45,8 +51,8 @@ h2 {
 }
 
 h3 {
-    color: black;
-    font-size: 30px;
+    color: white;
+    font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
     width: 885px;
@@ -60,14 +66,14 @@ img {
     padding: 20px 20px 20px
 }
 
-.buttons {
+.buttons, .uploadbutton {
     display: flex;
     justify-content: center;
     padding: 20px 20px 20px
 }
 
-.buttons button,
-.buttons label {
+
+.buttons button, .buttons label, .uploadbutton label{
     height: 50px;
     line-height: 50px;
     width: 150px;
@@ -88,17 +94,28 @@ img {
     margin-left: 25px;
 }
 
-.buttons .btn4 {
+.buttons .btn4{
     background: rgb(61, 61, 61);
+    height: 40px;
+    line-height: 40px;
+    width: 130px;
+
 }
 
-.buttons .btn4:hover {
+.buttons .btn4:hover{
     background: black
 }
 
-.buttons button:hover,
-.buttons label:hover {
+.uploadbutton label{
+    background: rgb(231, 130, 15);
+}
+
+.buttons button:hover, .buttons label:hover{
     background: rgb(0, 128, 255);
+}
+
+.uploadbutton label:hover{
+    background: rgb(212, 113, 0);
 }
 
 input[type=text] {
@@ -129,7 +146,7 @@ input[type=text]:focus {
 .container {
     border-radius: 10px;
     background-color: #f2f2f2;
-    padding: 20px 20px 20px;
+    padding: 20px 50px 20px 20px;
     /* flex-flow: column wrap;
 align-content: flex-start; */
 }
