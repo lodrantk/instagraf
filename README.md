@@ -4,7 +4,7 @@ A website that generates pretty graphs: a work in progress.
 
 **To run Instagraf locally** and observe it's current condition:
 
-Make sure you have pipenv and envpy installed (or run `pip pipenv install` and `pip envpy install`). 
+Make sure you have pipenv installed (or run `pip install pipenv`). 
 
 Then you can run:
 
