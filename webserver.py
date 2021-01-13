@@ -1,48 +1,50 @@
 import bottle
 from bottle import request, get, static_file
 from graph_func import graph_func
-from graph_csv import graph_csv
+from graph_csv import graph_csv, get_data
 import os
+
 
 # create directory 'output' for saved figures
 if not os.path.exists('output'):
     os.makedirs('output')
 
-
 @get('/')
 def homepage():
     return bottle.template("templates/index.tpl")
 
+@get('/static/<filename>.css')
+def stylesheets(filename):
+    return static_file('{}.css'.format(filename), root='static')
 
 @get('/home_func')
 def homefunc():
     return bottle.template("templates/home_func.tpl")
+
+@get('/graph_func/<filename>.png')
+def pngfunc(filename):
+    return static_file('{}.png'.format(filename), root='output')
+
+@get('/graph_func/<filename>.pdf')
+def pdffunc(filename):
+    return static_file('{}.pdf'.format(filename), root='output')
 
 
 @get('/home_csv')
 def homecsv():
     return bottle.template("templates/home_csv.tpl")
 
-
-@get('/static/<filename>.css')
-def stylesheets(filename):
-    return static_file('{}.css'.format(filename), root='static')
-
-
-@get('/graph_func/<filename>.png')
-def pnggraphs(filename):
+@get('/graph_csv/<filename>.png')
+def pngcsv(filename):
     return static_file('{}.png'.format(filename), root='output')
 
-
-@get('/static/<filename>.jpg')
-def pngimg(filename):
-    return static_file('{}.jpg'.format(filename), root='static')
-
-
-@get('/graph_func/<filename>.pdf')
-def pdfgraphs(filename):
+@get('/graph_csv/<filename>.pdf')
+def pdfcsv(filename):
     return static_file('{}.pdf'.format(filename), root='output')
 
+@get('/static/<filename>.jpg') #for background image
+def jpgimg(filename):
+    return static_file('{}.jpg'.format(filename), root='static')
 
 @bottle.post('/graph_func')
 def graph():

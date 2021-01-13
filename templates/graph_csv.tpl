@@ -40,8 +40,8 @@
 
             <div class="row center-xs">
                 <form method="post" action="/graph_csv">
-                    <div class="container col-xs-10 col-sm-10 col-md-7 col-lg-7">
-                        <div class="row around-xs">
+                    <div class="container col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="row around-xs around-sm around-md around-lg">
                             <div class="row-xs-12 row-sm-12 col-md-7 col-lg-7">
                                 <div class="row start-xs">
                                     <div class="col-xs-5">
@@ -95,7 +95,7 @@
                                     <div class="col-xs-7">
                                         <div class="slidecontainer">
                                             <input class="slider" type="range" id="fontsize" name="fontsize"
-                                                value="{{fontsize}}" min="1" max="50"
+                                                value="{{fontsize}}" min="5" max="30"
                                                 oninput="this.nextElementSibling.value = this.value">
                                             <!-- <output>15</output> -->
                                         </div>
@@ -131,8 +131,27 @@
                                 </div>
 
                                 <div class="row">
+                                    <label for="linefit" class="check">prikaži legendo
+                                        <input type="checkbox" id="linefit" name="linefit" {{"checked" if legend else ""
+                                            }} />
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                </div>
+
+                                <div class="row">
                                     <label for="linecolor">barva krivulje</label>
                                     <input type="color" id="linecolor" name="linecolor" value="{{linecolor}}">
+                                </div>
+
+                                <div class="row">
+                                    <label for="markercolor">barva krivulje</label>
+                                    <input type="color" id="markercolor" name="markercolor" value="{{markercolor}}">
+                                </div>
+
+                                <div class="row">
+                                    <label for="fitcolor">barva krivulje</label>
+                                    <input type="color" id="fitcolor" name="fitcolor" value="{{fitcolor}}">
                                 </div>
 
                                 <div class="row">
