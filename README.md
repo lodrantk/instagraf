@@ -25,10 +25,10 @@ Then you can run:
 
 All used JavaScript code is sourced directly from the internet (as I don't know much JavaScript at this point):
 * [show/hide division](http://jsfiddle.net/mithunsatheesh/wwcRr/),
-* [customize upload file button](https://stackoverflow.com/questions/41542845/how-to-display-file-name-for-custom-styled-input-file-using-jquery).
+* [customized upload-file button](https://stackoverflow.com/questions/41542845/how-to-display-file-name-for-custom-styled-input-file-using-jquery).
 
 So are some style features:
-* [customized range slide](https://www.w3schools.com/howto/howto_js_rangeslider.asp).
+* [customized range slider](https://www.w3schools.com/howto/howto_js_rangeslider.asp).
 
 ## Features
 * plot functions f(x)
