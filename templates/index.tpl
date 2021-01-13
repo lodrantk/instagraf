@@ -6,25 +6,36 @@
     <title>instagraf</title>
     <link rel="stylesheet" href="static/style.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"
+        type="text/css">
 </head>
 
 <body>
     <div class="page">
+        <div class="container-fluid middle-xs">
         <div class="row center-xs">
             <h2 class="hero-headline"> instagraf</h2>
         </div>
         <div class="row center-xs">
             <div class="buttons">
-                <input type="file" accept=".csv" id="upload" hidden />
-                <label for="upload">iz .csv datoteke</label>
+                <a href="/home_csv">
+                    <button class="btn2">iz .csv datoteke</button>
+                </a>
+
                 <button class="btn2">ročni vnos</button>
-                <button class="btn2">formula</button>
+
+                <a href="/home_func">
+                    <button class="btn2">formula</button>
+                </a>
             </div>
         </div>
+        </div>
 
-        <div class="row center-xs">
-            <form method="post" action="/graf">
+    </div>
+
+
+    <!-- <div class="row center-xs">
+            <form method="post" action="/graph_func">
                 <div class="container col-xs-7">
                     <div class="row around-xs">
                         <div class="col-xs-7">
@@ -91,8 +102,9 @@
 
                                 <div class="col-xs-7">
                                     <div class="slidecontainer">
-                                        <input class="slider" type="range" id="linewidth" name="linewidth" value="2" min="1" max="8" oninput="this.nextElementSibling.value = this.value">
-                                        <!--  <output>2</output> -->
+                                        <input class="slider" type="range" id="linewidth" name="linewidth" value="2"
+                                            min="1" max="8" oninput="this.nextElementSibling.value = this.value">
+                                        <output>2</output> 
                                     </div>
                                 </div>
 
@@ -105,9 +117,9 @@
 
                                 <div class="col-xs-7">
                                     <div class="slidecontainer">
-                                        <input class="slider" type="range" id="fontsize" name="fontsize" value="15" min="1" max="50" oninput="this.nextElementSibling.value = this.value">
-                                        <!-- <output>15</output> -->
-                                    </div>
+                                        <input class="slider" type="range" id="fontsize" name="fontsize" value="15"
+                                            min="1" max="50" oninput="this.nextElementSibling.value = this.value">
+                                        <output>15</output>
                                 </div>
                             </div>
                         </div>
@@ -115,24 +127,24 @@
 
                             <div class="row">
                                 <label for="legend" class="check">prikaži legendo
-                                                <input type="checkbox" id="legend" name="legend">
-                                                <span class="checkmark"></span>
-                                            </label>
+                                    <input type="checkbox" id="legend" name="legend">
+                                    <span class="checkmark"></span>
+                                </label>
 
                             </div>
 
                             <div class="row start-xs">
                                 <label class="check" for="grid">prikaži mrežo
-                                            <input type="checkbox" id="grid" name="grid">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                    <input type="checkbox" id="grid" name="grid">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
 
                             <div class="row">
                                 <label class="check" for="usetex">uporabi Latex
-                                        <input type="checkbox" id="usetex" name="usetex">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    <input type="checkbox" id="usetex" name="usetex">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
 
                             <div class="row">
@@ -145,12 +157,12 @@
                                 <label for="linestyle">tip črte</label>
                                 <div class="dropdown">
                                     <select class="select-css" name="linestyle" id="linestyle">
-                                                <option value="">brez</option>
-                                                <option value="-" selected>polna</option>
-                                                <option value="--">črtkana</option>
-                                                <option value=":">pike</option>
-                                
-                                            </select>
+                                        <option value="">brez</option>
+                                        <option value="-" selected>polna</option>
+                                        <option value="--">črtkana</option>
+                                        <option value=":">pike</option>
+
+                                    </select>
                                 </div>
                             </div>
 
@@ -177,17 +189,15 @@
 
                 <div class="row center-xs">
                     <div class="buttons">
-                        <input type="submit" id="narisi" value="nariši graf" hidden />
-                        <label for="narisi">nariši graf</label>
+                        <input type="submit" id="graph" value="nariši graf" hidden />
+                        <label for="graph">nariši graf</label>
                     </div>
                 </div>
 
             </form>
 
 
-        </div>
-
-    </div>
+        </div> -->
 
 
 
