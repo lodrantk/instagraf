@@ -9,38 +9,32 @@ from matplotlib.ticker import ScalarFormatter
 
 def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth, fontsize, linestyle, grid, usetex, marker):
     plt.clf()
-
-    """
-    - "marker" tu niti nima smisla, ker je le posledica moje izbrane natančnosti
-    - plottanje več funkcij hkrati ...?
-    - sesuje se za č, š, ž v oznakah: rc("text.latex", unicode= True) se trudi, ampak mu ne uspe
-    """
-
-    # velike in majhne številke zapiši v formatu 1.56e-8
-    plt.ticklabel_format(style='sci', scilimits=(-3, 4), axis='both')
-
-    # privzet font: Helvetica noče delovat?
-    rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
-
-    if usetex == "on":  # uporabi latex Modern Roman font
-        rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
-        rc("text", usetex=True)
-    else:
-        # zapiši desetice 1.56*10^-8 ... očitno NE DELUJE !!!, latex to naredi sam
-        ScalarFormatter(useMathText=True)
-
+    rcParams.update(plt.rcParamsDefault) #tick-sizes were sketchy without reset
     rcParams['font.size'] = fontsize
-    # bi se to splačalo posebej določat kot "labelsize"?; če uvedemo "napredno"
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
 
+    """
+    - plot multiple functions at once ... ?
+    - č, š, ž?
+    """
+
+    #set number format 1.56e-8
+    plt.ticklabel_format(style='sci', scilimits=(-3, 4), axis='both')
+
+    #change default font
+    rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
+
+    if usetex == "on":  # use default Latex font
+        rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
+        rc("text", usetex=True)
+
     if xmin == "" or xmax == "":
-        # privzeto def. območje, če ga uporabnik ne specificira
+        # default domain
         x = np.linspace(-3, 3, 100)
     else:
-        # če vpiše samo eno mejo zaenkrat dobi graf v privzetih mejah
-        # kakšna naj bo tu natanačnost num=št. točk med mejama=int?
-        x = np.linspace(float(xmin), float(xmax), 1000)
+        # both limits need to be set!
+        x = np.linspace(float(xmin), float(xmax), 1000) #how can I properly set the precision??
 
     # evaluate function in a not evil way
     aevalc = Interpreter()
@@ -62,7 +56,7 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, color, linew
     if str(grid) == "on":
         plt.grid()
 
-    plt.tight_layout()  # poskuša ne odrezat oznak osi
+    plt.tight_layout()  # don't cut off axis labels
 
     name = uuid4().hex
 
