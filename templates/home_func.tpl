@@ -1,195 +1,194 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="sl">
 
 <head>
     <meta charset="utf-8">
-    <title>instagraf</title>
-    <link rel="stylesheet" href="static/style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"
-        type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+
+
+    <title>Instagraf</title>
 </head>
 
+
 <body>
-    <div class="page">
-        <div class="row center-xs">
-            <h3 class="hero-headline">instagraf funkcije</h3>
+    <div class="container-fluid">
+        <div class="row" style="padding: 20px;">
+            <h1 class="display-1">instagraf</h1>
         </div>
 
-        <div class="row center-xs">
-            <form method="post" action="/graph_func">
-                <div class="container col-xs-10 col-sm-10 col-md-7 col-lg-7">
-                    <div class="row around-xs">
-                        <div class="row-xs-12 row-sm-12 col-md-7 col-lg-7">
-                            <div class="row start-xs">
-                                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                                    <label for="function">funkcija f(x) =</label>
-                                </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+            integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+            crossorigin="anonymous"></script>
 
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <input type="text" id="function" name="function" value="sin(x)**2 + 2*cos(log(x))">
-                                </div>
-                            </div>
-                            <div class="row start-xs">
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                    <label for="title">naslov grafa</label>
-                                </div>
 
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <input type="text" id="title" name="title">
-                                </div>
-                            </div>
-                            <div class="row start-xs">
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                    <label for="xlabel">oznaka x osi</label>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <input type="text" id="xlabel" name="xlabel">
-                                </div>
-                            </div>
-                            <div class="row start-xs">
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                    <label for="ylabel">oznaka y osi</label>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <input type="text" id="ylabel" name="ylabel">
-                                </div>
-                            </div>
-
-                            <div class="row start-xs">
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                    <label for="xmin">spodnja meja x</label>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <input type="text" id="xmin" name="xmin">
-                                </div>
-                            </div>
-
-                            <div class="row start-xs">
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                    <label for="xmax">zgornja meja x</label>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <input type="text" id="xmax" name="xmax">
-                                </div>
-                            </div>
-
-                            <div class="row start-xs">
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                    <label for="linewidth">debelina krivulje</label>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <div class="slidecontainer">
-                                        <input class="slider" type="range" id="linewidth" name="linewidth" value="2"
-                                            min="1" max="8" oninput="this.nextElementSibling.value = this.value">
-                                        <!--  <output>2</output> -->
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row start-xs">
-                                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
-                                    <label for="fontsize">velikost črk</label>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <div class="slidecontainer">
-                                        <input class="slider" type="range" id="fontsize" name="fontsize" value="15"
-                                            min="5" max="30" oninput="this.nextElementSibling.value = this.value">
-                                        <!-- <output>15</output> -->
-                                    </div>
-                                </div>
+        <form method="post" action="/graph_func" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row align-items-start">
+                    <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
+                        <div class="row mb-3">
+                            <label for="function"
+                                class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">funkcija f(x) =
+                            </label>
+                            <div class="row-sm col-md col-lg col-xl col-xxl">
+                                <input type="text" class="form-control" id="function" name="function"
+                                    value="sin(x)**2 + 4*exp(6*x-2)">
                             </div>
                         </div>
-                        <div class="row-xs-12 row-sm-12 col-md-5 col-lg-5">
 
-                            <div class="row">
-                                <label for="legend" class="check">prikaži legendo
-                                    <input type="checkbox" id="legend" name="legend">
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="row mb-3">
+                            <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
+                                grafa </label>
+                            <div class="row-sm col-md col-lg col-xl col-xxl">
+                                <input type="text" class="form-control" id="title" name="title" value="">
+                            </div>
+                        </div>
 
+                        <div class="row mb-3">
+                            <label for="xlabel"
+                                class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">oznaka x
+                                osi</label>
+                            <div class="row-sm col-md col-lg col-xl col-xxl">
+                                <input type="text" class="form-control" id="xlabel" name="xlabel" value="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="ylabel"
+                                class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">oznaka y
+                                osi</label>
+                            <div class="row-sm col-md col-lg col-xl col-xxl">
+                                <input type="text" class="form-control" id="ylabel" name="ylabel" value="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="xmin"
+                                class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">spodnja
+                                meja x</label>
+                            <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
+                                <input type="text" class="form-control" id="xmin" name="xmin" value="0">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="xmax"
+                                class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">zgornja
+                                meja x</label>
+                            <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
+                                <input type="text" class="form-control" id="xmax" name="xmax" value="5">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <label for="linewidth"
+                                class="row-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">debelina
+                                črte</label>
+                            <div class="col-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
+                                <input type="number" class="form-control" id="linewidth" name="linewidthInput" min="1"
+                                    max="8" value="2" oninput="this.form.linewidthRange.value=this.value" />
+                            </div>
+                            <div class="col-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
+                                <input type="range" class="slider" name="linewidthRange" min="1" max="8" value="2"
+                                    oninput="this.form.linewidthInput.value=this.value" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <label for="fontsize"
+                                class="row-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">velikost
+                                črk</label>
+                            <div class="col-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
+                                <input type="number" class="form-control" id="fontsize" name="fontsizeInput" min="10"
+                                    max="40" value="25" oninput="this.form.fontsizeRange.value=this.value" />
+                            </div>
+                            <div class="col-8 col-sm-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
+                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="25"
+                                    oninput="this.form.fontsizeInput.value=this.value" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-sm row-md col-lg-5 col-xl-5 col-xxl-5">
+
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" name="legend" id="legend">
+                            <label class="form-check-label mb-3" for="legend">
+                                prikaži legendo
+                            </label>
+                        </div>
+
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" name="grid" id="grid">
+                            <label class="form-check-label mb-3 " for="grid">
+                                prikaži mrežo
+                            </label>
+                        </div>
+
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" name="usetex" id="usetex">
+                            <label class="form-check-label mb-3 " for="usetex">
+                                uporabi Latex
+                            </label>
+                        </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-3">
+                                <input type="color" id="linecolor" value="#BFDA30" title="Choose your color">
                             </div>
 
-                            <div class="row start-xs">
-                                <label class="check" for="grid">prikaži mrežo
-                                    <input type="checkbox" id="grid" name="grid">
-                                    <span class="checkmark"></span>
-                                </label>
+                            <div class="col-9">
+                                <label for="linecolor" class="form-label">barva krivulje</label>
+
                             </div>
+                        </div>
 
-                            <div class="row">
-                                <label class="check" for="usetex">uporabi Latex
-                                    <input type="checkbox" id="usetex" name="usetex">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-
-                            <div class="row">
-                                <label for="color">barva krivulje</label>
-                                <input type="color" id="color" name="color" value="#ff0000">
-                            </div>
-
-                            <div class="row">
-
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
                                 <label for="linestyle">tip črte</label>
-                                <div class="dropdown">
-                                    <select class="select-css" name="linestyle" id="linestyle">
-                                        <option value="">brez</option>
-                                        <option value="-" selected>polna</option>
-                                        <option value="--">črtkana</option>
-                                        <option value=":">pike</option>
-
-                                    </select>
-                                </div>
                             </div>
+                            <div class="col-8 col-md col-lg col-xl col-xxl">
+                                <select class="form-select" name="linestyle" id="linestyle">
 
-                            <div class="row">
-                                <label for="marker">tip oznake</label>
-                                <div class="dropdown">
-                                    <select class="select-css" name="marker" id="marker">
-                                        <option value="" selected>brez</option>
-                                        <option value=".">pika</option>
-                                        <option value="o">krožec</option>
-                                        <option value="x">križec</option>
-                                        <option value="+">plus</option>
-                                        <option value="s">kvadrat</option>
-                                        <option value="^">trikotnik</option>
-                                        <option value="D">romb</option>
-                                        <option value="*">zvezdica</option>
-                                    </select>
-                                </div>
+                                    <option value="">brez</option>
+                                    <option value="-" selected>polna</option>
+                                    <option value="--">črtkana
+                                    </option>
+                                    <option value=":">pike</option>
+                                </select>
                             </div>
-
                         </div>
                     </div>
+
                 </div>
-
-                <div class="row center-xs">
-                    <div class="buttons">
-                        <input type="submit" id="graph" value="nariši graf" hidden />
-                        <label for="graph">nariši graf</label>
-                    </div>
-                </div>
-
-            </form>
-
-        </div>
-        <div class="row center-xs">
-            <div class="buttons">
-                <a href="/">
-                    <button class="btn4">pojdi nazaj</button>
-                </a>
             </div>
-        </div>
 
+            <div class="row center-xs">
+                <div class="buttons">
+                    <input type="submit" id="graph" value="nariši graf" hidden />
+                    <label for="graph">nariši graf</label>
+                </div>
+            </div>
+
+        </form>
 
     </div>
+    <div class="row center-xs">
+        <div class="buttons">
+            <a href="/">
+                <button class="btn4">pojdi nazaj</button>
+            </a>
+        </div>
+    </div>
+
+
+
 
 
 

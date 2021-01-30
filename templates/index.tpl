@@ -10,25 +10,26 @@
         type="text/css">
 </head>
 
-<body> <!-- ?? How can I center the body on the page vertically?? -->
+<body>
+    <!-- ?? How can I center the body on the page vertically?? -->
     <div class="page">
-        <div class="container-fluid middle-xs"> 
-        <div class="row center-xs">
-            <h2 class="hero-headline"> instagraf</h2>
-        </div>
-        <div class="row center-xs">
-            <div class="buttons">
-                <a href="/home_csv">
-                    <button class="btn2">iz .csv datoteke</button>
-                </a>
-
-                <button class="btn2">ročni vnos</button>
-
-                <a href="/home_func">
-                    <button class="btn2">formula</button>
-                </a>
+        <div class="container-fluid middle-xs">
+            <div class="row center-xs">
+                <h2 class="hero-headline"> instagraf</h2>
             </div>
-        </div>
+            <div class="row center-xs">
+                <div class="buttons">
+                    <a href="/home_csv">
+                        <button class="btn2">iz .csv datoteke</button>
+                    </a>
+                    <a href="/home_data">
+                        <button class="btn2">ročni vnos</button>
+                    </a>
+                    <a href="/home_func">
+                        <button class="btn2">formula</button>
+                    </a>
+                </div>
+            </div>
         </div>
 
     </div>
