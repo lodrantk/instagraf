@@ -7,9 +7,9 @@ from asteval import Interpreter
 from matplotlib.ticker import ScalarFormatter
 
 
-def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, linewidth, fontsize, linestyle, grid, usetex):
+def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth, fontsize, linestyle, grid, usetex, marker):
     plt.clf()
-    plt.rcdefaults() #tick-sizes were sketchy without reset
+    rcParams.update(plt.rcParamsDefault) #tick-sizes were sketchy without reset
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
@@ -18,6 +18,9 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
     - plot multiple functions at once ... ?
     - č, š, ž?
     """
+
+    #set number format 1.56e-8
+    plt.ticklabel_format(style='sci', scilimits=(-3, 4), axis='both')
 
     #change default font
     rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
@@ -39,8 +42,8 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
     aevalc.symtable['x'] = x
     y = aevalc.run(expr)
 
-    plt.plot(x, y, linewidth=linewidth, color=linecolor,
-             linestyle=linestyle, label=function)
+    plt.plot(x, y, linewidth=linewidth, color=color,
+             linestyle=linestyle, label=function, marker=marker)
 
     plt.ylabel(str(ylabel))
     plt.xlabel(str(xlabel))
@@ -54,6 +57,7 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
         plt.grid()
 
     plt.tight_layout()  # don't cut off axis labels
+
     name = uuid4().hex
 
     plt.savefig("output/" + name + ".png", dpi=300)
