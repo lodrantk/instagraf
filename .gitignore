@@ -131,3 +131,6 @@ dmypy.json
 .DS_Store
 
 output/
+
+bootstrap/
+node_modules/
