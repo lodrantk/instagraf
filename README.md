@@ -20,7 +20,7 @@ Then you can run:
 ## Sources and Technologies
 * the webserver is based on the Python Web Framework [Bottle](https://bottlepy.org/docs/dev/)
 * all graphs are drawn with [Matplotlib](https://matplotlib.org/3.1.0/index.html), with the help of [Numpy](https://numpy.org/doc/stable/) and [Pandas](https://pandas.pydata.org/) (for .csv file import data)
-* the website layout uses [Flexbox Grid](http://flexboxgrid.com/) for responsive design features
+* responsive website design is made with [Bootstrap v.5](https://getbootstrap.com/)
 * user-input mathematical functions are safely evaluated by [Asteval](https://newville.github.io/asteval/)
 
 All used JavaScript code is sourced directly from the internet (as I don't know much JavaScript at this point):
@@ -35,17 +35,20 @@ So are some style features:
 * plot graphs from uploaded .csv files
 * change line and marker types, linewidth, fontsize, marker and line color
 * display legend and/or grid
-* fit straght line to data and get fitted parameters
+* fit straght line to data and get parameters
 
 **To-do list:**
 * plot graphs from direct manual input ... table for users to input numbers, add/remove rows as necessary
-* plot multiple functions at once
+* FORM VALIDATION: add error messages
 
-* fix alignments on all tamplates
-* display numbers next to (or inside) range slider
-* is there a way to make adjustments on a graph from .csv without the need for reupload?
-* add error messages - form validation
 * function plot precision?
+* `graph_csv.tpl` currently not picking up data from `home_csv.tpl`?
+* custom image size?
+
+* add tooltip instructions where necessary (Latex)
+* add _toolbar_ to help write function expressions: `^ -> **`, `x -> *` ...
+* match headers across pages
+* Bootstrap `index.py`
 
 ## Status
 My project is: _in progress_.
