@@ -22,24 +22,27 @@ from matplotlib.ticker import ScalarFormatter
 - izberi kateri podatek je v katerem stolpcu (dropdown: x, y, xerr, yerr)
 - kaj pa plottanje več funkcij iz .csv hkrati ... 
 """
-def get_data(uploadfile):
-    dat = read_csv(uploadfile.file)
+def get_data(uploadfile, hasheader):
+    if hasheader != "on":
+        dat = read_csv(uploadfile.file, header=None)
+    else:
+        dat = read_csv(uploadfile.file)
+
     data = dat.to_numpy()
     x = data[:, 0]
     y = data[:, 1]
-    return x, y
+    xlabel = list(dat.columns)[0]
+    ylabel = list(dat.columns)[1]
 
+    return x, y, xlabel, ylabel
 
-def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor):
+def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader):
     plt.clf()
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
 
-    x, y = get_data(uploadfile)
-
-    # format numbers (ex. 1.56e-8)
-    plt.ticklabel_format(style='sci', scilimits=(-3, 4), axis='both')
+    x, y, xlabel_head, ylabel_head = get_data(uploadfile, hasheader)
 
     # default font (sans-serif)
     rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
@@ -69,8 +72,14 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
             fitpar[0], fitcov[0][0]**0.5, fitpar[1], fitcov[1][1]**0.5)
         plt.plot(x, k*x + n, linewidth=linewidth,
                  c=fitcolor, label=label, zorder=-5)
+    
+
+    if hasheader == "on":
+        plt.xlabel(str(xlabel_head))
+        plt.ylabel(str(ylabel_head))
+    else:
         plt.xlabel(str(xlabel))
-    plt.ylabel(str(ylabel))
+        plt.ylabel(str(ylabel))
 
     if title != None:
         plt.title(str(title))
@@ -79,7 +88,6 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
         plt.legend(loc="best")
     if grid == "on":
         plt.grid()
-
 
     plt.tight_layout()  # don't cut off axis labels
 
