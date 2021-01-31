@@ -26,35 +26,41 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
         rc("text", usetex=True)
 
+    #set domain
     if xmin == "" or xmax == "":
-        # default domain
-        x = np.linspace(-3, 3, 100)
+        x = np.linspace(0, 5, 100)
     else:
         # both limits need to be set!
         x = np.linspace(float(xmin), float(xmax), 1000) #how can I properly set the precision??
-
+    
+    """
+    #set y-limits
+    if ymin != None and ymax != None:
+        plt.ylim(float(ymin), float(ymax))
+    """
     # evaluate function in a not evil way
     aevalc = Interpreter()
     expr = aevalc.parse(function.strip())
     aevalc.symtable['x'] = x
     y = aevalc.run(expr)
 
+    #plot function
     plt.plot(x, y, linewidth=linewidth, color=linecolor,
              linestyle=linestyle, label=function)
-
+    
+    #add axis labels, title, legend and grid
     plt.ylabel(str(ylabel))
     plt.xlabel(str(xlabel))
 
     if title != None:
         plt.title(str(title))
-
     if legend == "on":
         plt.legend(loc="best")
-    if str(grid) == "on":
+    if grid == "on":
         plt.grid()
 
     plt.tight_layout()  # don't cut off axis labels
-    name = uuid4().hex
+    name = uuid4().hex # generate file name
 
     plt.savefig("output/" + name + ".png", dpi=300)
     plt.savefig("output/" + name + ".pdf")
