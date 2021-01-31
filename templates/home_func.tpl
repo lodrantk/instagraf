@@ -76,9 +76,6 @@
                             <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
                                 <input type="text" class="form-control" id="xmin" name="xmin" value="0">
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="xmax"
                                 class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">zgornja
                                 meja x</label>
@@ -107,10 +104,10 @@
                                 črk</label>
                             <div class="col-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
                                 <input type="number" class="form-control" id="fontsize" name="fontsizeInput" min="10"
-                                    max="40" value="25" oninput="this.form.fontsizeRange.value=this.value" />
+                                    max="40" value="20" oninput="this.form.fontsizeRange.value=this.value" />
                             </div>
                             <div class="col-8 col-sm-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
-                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="25"
+                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="20"
                                     oninput="this.form.fontsizeInput.value=this.value" />
                             </div>
                         </div>

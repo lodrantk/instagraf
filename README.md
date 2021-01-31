@@ -1,6 +1,6 @@
-# instagraf
+#  (fizikalni) instagraf
 
-A website that generates pretty graphs from mathematical formulas f(x), manually input numerical data or uploaded .csv files.
+A website that generates pretty graphs from mathematical formulas f(x), manually input numerical data or uploaded .csv files. Perfect for young physicists adding plots to their reports.
 
 Projekt pri predmetu Računalništvo (Fizika, 2. letnik, FMF UL).
 
@@ -32,14 +32,18 @@ So are some style features:
 
 ## Features
 * plot functions f(x)
-* plot graphs from uploaded .csv files
-* change line and marker types, linewidth, fontsize, marker and line color
-* display legend and/or grid
-* fit straght line to data and get parameters
+* plot data from uploaded .csv files or data from direct input (scatter or line plot)
+* save your plots as .pdf or .png
+* customize your plots: 
+    * change line and marker types, marker and line color, linewidth, font-size ...
+    * display legend and/or grid
+    * use Latex notation (ex. $\frac@{U_0}{I_max}) in the plot title and axis labels
+    * fit straght line to data and get parameters
 
 **To-do list:**
 * plot graphs from direct manual input ... table for users to input numbers, add/remove rows as necessary
 * FORM VALIDATION: add error messages
+* multiple plots on same figure?
 
 * function plot precision?
 * `graph_csv.tpl` currently not picking up data from `home_csv.tpl`?
@@ -48,7 +52,8 @@ So are some style features:
 * add tooltip instructions where necessary (Latex)
 * add _toolbar_ to help write function expressions: `^ -> **`, `x -> *` ...
 * match headers across pages
-* Bootstrap `index.py`
+* č, š, ž work in labels when plotting from home-page, but not from graph-page?
+
 
 ## Status
 My project is: _in progress_.

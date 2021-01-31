@@ -17,8 +17,8 @@
 <body>
     <div class="container-fluid align-items-center">
 
-        <div class="row center">
-            <h3 class="headline">tvoj instagraf</h3>
+        <div class="row" style="padding: 20px;">
+            <h1 class="display-1">tvoj podatkov</h1>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"

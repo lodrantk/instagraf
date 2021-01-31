@@ -218,3 +218,18 @@
 </body>
 
 </html>
+
+<div class="row mb-3">
+    <label for="ymin"
+        class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">spodnja
+        meja y</label>
+    <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
+        <input type="text" class="form-control" id="ymin" name="ymin" value="">
+    </div>
+    <label for="ymax"
+        class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">zgornja
+        meja y</label>
+    <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
+        <input type="text" class="form-control" id="ymax" name="ymax" value="">
+    </div>
+</div>

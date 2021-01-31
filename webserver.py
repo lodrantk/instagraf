@@ -43,15 +43,15 @@ def pdfcsv(filename):
     return static_file('{}.pdf'.format(filename), root='output')
 
 @get('/home_data')
-def homefunc():
+def homedata():
     return bottle.template("templates/home_data.tpl")
 
 @get('/graph_data/<filename>.png')
-def pngfunc(filename):
+def pngdata(filename):
     return static_file('{}.png'.format(filename), root='output')
 
 @get('/graph_data/<filename>.pdf')
-def pdffunc(filename):
+def pdfdata(filename):
     return static_file('{}.pdf'.format(filename), root='output')
 
 
