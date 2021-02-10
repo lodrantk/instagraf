@@ -35,15 +35,20 @@ So are some style features:
 * plot data from uploaded .csv files or data from direct input (scatter or line plot)
 * save your plots as .pdf or .png
 * customize your plots: 
-    * change line and marker types, marker and line color, linewidth, font-size ...
+    * change line and marker types, marker and line color, linewidth, fontsize ...
     * display legend and/or grid
-    * use Latex notation (ex. $\frac@{U_0}{I_max}) in the plot title and axis labels
+    * use Latex notation (ex. $\frac{U_0}{I_max}$) in the plot title and axis labels
     * fit straght line to data and get parameters
 
 **To-do list:**
-* plot graphs from direct manual input ... table for users to input numbers, add/remove rows as necessary
-* FORM VALIDATION: add error messages
-* multiple plots on same figure?
+* plot from input:
+    * import from `home` to `graph`
+    * fontsize params not recognized? (returns TypeError)
+
+* FORM VALIDATION: how to?
+    * validate that file is in fact `.csv`
+    * validate formula
+    * validate input data
 
 * function plot precision?
 * `graph_csv.tpl` currently not picking up data from `home_csv.tpl`?
