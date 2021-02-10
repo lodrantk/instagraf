@@ -2,6 +2,7 @@ import bottle
 from bottle import request, get, static_file
 from graph_func import graph_func
 from graph_csv import graph_csv, get_data
+from graph_data import graph_data
 import os
 
 
@@ -86,6 +87,11 @@ def graphcsv():
     uploadfile = request.files.get('uploadfile')
     hasheader = request.forms.get("hasheader")
 
+    name, ext = os.path.splitext(uploadfile.filename)
+    if ext not in ('.csv'):
+        return 'Izbrana datoteka ni ustrezna.' #Kako ta primer spravim v html?
+    #Kaj pa če v csv-fajlu niso le številke.
+
     title = request.forms.get("title")
     xlabel = request.forms.get("xlabel")
     ylabel = request.forms.get("ylabel")
@@ -112,6 +118,10 @@ def graphcsv():
 
 @bottle.post('/graph_data')
 def graphdata():
+
+    plotdatax = request.forms.get("plotdatax")
+    plotdatay = request.forms.get("plotdatay")
+
     title = request.forms.get("title")
     xlabel = request.forms.get("xlabel")
     ylabel = request.forms.get("ylabel")
@@ -131,10 +141,9 @@ def graphdata():
     linefit = request.forms.get("linefit")
     fitcolor = request.forms.get("fitcolor")
 
-    name = graph_csv(title, xlabel, ylabel, fontsize, grid, usetex, legend,
-                     linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor)
+    name = graph_data(plotdatax, plotdatay, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor)
 
-    return bottle.template("templates/graph_csv.tpl", name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor)
+    return bottle.template("templates/graph_data.tpl", plotdatay=plotdatay, plotdatax=plotdatax, name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor)
 
 
 bottle.run(debug=True, host="0.0.0.0", port=80, reloader=True)

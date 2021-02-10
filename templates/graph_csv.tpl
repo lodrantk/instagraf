@@ -49,7 +49,8 @@
                 </a>
             </div>
         </div>
-        <form method="POST" action="/graph_csv" enctype="multipart/form-data">
+        <form method="POST" action="/graph_csv" enctype="multipart/form-data" class="was-validated" novalidate>
+
             <div class="container">
 
                 <div class="row align-items-start">
@@ -58,7 +59,8 @@
                         <div class="row mb-3 align-items-start justify-content-center">
                             <div class="upload2 col-6">
                                 <label for="file-upload" class>naloži .csv datoteko</label>
-                                <input id="file-upload" name="uploadfile" type="file" style="display:none;">
+                                <input id="file-upload" name="uploadfile" type="file" accept=".csv" style="display:none;" class="form-control" aria-label="file example" required>
+                                <div class="invalid-feedback">Nobena datoteka ni izbrana.</div>
                             </div>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
                                 <label class="col-form-label" id="file-name"></label>
@@ -80,7 +82,7 @@
                             <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
                                 grafa </label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+                                <input type="text" class="form-control" id="title" name="title" value="{{title}}" novalidate>
                             </div>
                         </div>
 

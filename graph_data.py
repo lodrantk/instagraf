@@ -7,53 +7,56 @@ from asteval import Interpreter
 from matplotlib.ticker import ScalarFormatter
 
 
-def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, color, linewidth, fontsize, linestyle, grid, usetex, marker):
+def graph_data(plotdatax, plotdatay, title, xlabel, ylabel, fontsize, grid, usetex, legend,
+                     linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor):
     plt.clf()
-    rcParams.update(plt.rcParamsDefault) #tick-sizes were sketchy without reset
+
+"""
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
+"""
+    x = list(map(int, plotdatax.split(",")))
+    y = list(map(int, plotdatax.split(",")))
 
-    """
-    - plot multiple functions at once ... ?
-    - č, š, ž?
-    """
-
-    #set number format 1.56e-8
-    plt.ticklabel_format(style='sci', scilimits=(-3, 4), axis='both')
-
-    #change default font
+    # default font (sans-serif)
     rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
 
-    if usetex == "on":  # use default Latex font
+    if usetex == "on":  # use default Latex font (serif)
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
         rc("text", usetex=True)
 
-    if xmin == "" or xmax == "":
-        # default domain
-        x = np.linspace(-3, 3, 100)
+    if marker == "":
+        plt.plot(x, y, c=linecolor, linestyle=linestyle,
+                     linewidth=linewidth)
+    if linestyle == "":
+        plt.scatter(x, y, c=markercolor, marker=marker)
     else:
-        # both limits need to be set!
-        x = np.linspace(float(xmin), float(xmax), 1000) #how can I properly set the precision??
+        plt.plot(x, y, c=linecolor, linestyle=linestyle,
+                     linewidth=linewidth)
+        plt.scatter(x, y, c=markercolor, marker=marker)
+    
+    if linefit == "on":
+        def premica(x, k, n):
+            return k*x + n
 
-    # evaluate function in a not evil way
-    aevalc = Interpreter()
-    expr = aevalc.parse(function.strip())
-    aevalc.symtable['x'] = x
-    y = aevalc.run(expr)
-
-    plt.plot(x, y, linewidth=linewidth, color=color,
-             linestyle=linestyle, label=function, marker=marker)
-
-    plt.ylabel(str(ylabel))
+        # sigma = yerr?
+        fitpar, fitcov = curve_fit(premica, xdata=x, ydata=y)
+        k, n = fitpar
+        label = '$ y = kx  + n$\n$k = %.4f \pm %.4f$, \n$ n = %.4f \pm %.4f$' % (
+            fitpar[0], fitcov[0][0]**0.5, fitpar[1], fitcov[1][1]**0.5)
+        plt.plot(x, k*x + n, linewidth=linewidth,
+                 c=fitcolor, label=label, zorder=-5)
+    
     plt.xlabel(str(xlabel))
+    plt.ylabel(str(ylabel))
 
     if title != None:
         plt.title(str(title))
 
     if legend == "on":
         plt.legend(loc="best")
-    if str(grid) == "on":
+    if grid == "on":
         plt.grid()
 
     plt.tight_layout()  # don't cut off axis labels
@@ -62,5 +65,4 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, color, linew
 
     plt.savefig("output/" + name + ".png", dpi=300)
     plt.savefig("output/" + name + ".pdf")
-
     return name

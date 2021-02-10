@@ -36,20 +36,25 @@
             <h1 class="display-1">instagraf podatkov</h1>
         </div>
 
-        <form method="POST" action="/graph_csv" enctype="multipart/form-data">
+        <form method="POST" action="/graph_csv" enctype="multipart/form-data" class="needs-validation">
             <div class="row align-items-center justify-content-center">
                 <div class="uploadbutton">
-                    <label for="file-upload" class>naloži .csv datoteko</label>
-                    <input id="file-upload" name="uploadfile" type="file" style="display:none;">
+                    <label for="file-upload">naloži .csv datoteko</label>
+                    <input id="file-upload" name="uploadfile" type="file" style="display:none;" accept=".csv"
+                        class="form-control" aria-label="file example" required>
+                    <div for="file-upload" class="invalid-feedback nofile">Nobena datoteka ni izbrana.</div>
                 </div>
+
                 <div class="uploadname">
                     <label id="file-name"></label>
                 </div>
+
                 <script>
                     document.querySelector("#file-upload").onchange = function () {
                         document.querySelector("#file-name").textContent = this.files[0].name;
                     }
                 </script>
+
             </div>
 
             <div class="container">
