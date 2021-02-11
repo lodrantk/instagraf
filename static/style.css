@@ -153,6 +153,13 @@ input[type=text] {
     opacity: 1;
 }
 
+.plotdata .errortext input[type=text] {
+    border: none;
+    background-color: rgb(250, 173, 58);
+    border-radius: 4px;
+    opacity: 1;
+}
+
 input[type=color] {
     width: 100%;
     border: none;
