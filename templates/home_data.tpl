@@ -204,10 +204,9 @@
 
                         <div id="showfitcolor" style="display: none">
 
-
                             <div class="row mb-3 align-items-center">
                                 <div class="col-3">
-                                    <input type="color" id="fitcolor" value="#BFDA30" title="Choose your color">
+                                    <input type="color" id="fitcolor" value="#BFBFBF" title="Choose your color">
                                 </div>
 
                                 <div class="col-9">

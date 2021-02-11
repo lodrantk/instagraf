@@ -35,12 +35,12 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center " style="padding: 20px;">
-            <h1 class="display-1">instagraf podatkov</h1>
+            <h1 class="display-1">tvoj instagraf</h1>
         </div>
 
         <div class="row align-items-center">
             <div>
-                <img src="graph_data/{{name}}.png" alt="slika grafa" style="height:500px;">
+                <img src="graph_data/{{name}}.png" alt="slika grafa" style="height:400px;">
             </div>
         </div>
         <div class="row align-items-center">
@@ -48,7 +48,7 @@
                 <a href="graph_data/{{name}}.pdf" download="moj_instagraf">
                     <button>prenesi .pdf</button>
                 </a>
-                <a href="graph_fdata/{{name}}.png" download="moj_instagraf">
+                <a href="graph_data/{{name}}.png" download="moj_instagraf">
                     <button class="btn2">prenesi .png</button></a>
             </div>
         </div>
@@ -90,12 +90,11 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
-
                         <div class="row mb-3">
                             <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
                                 grafa </label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+                                <input type="text" class="form-control" id="title" name="title" value="{{title}}" novalidate>
                             </div>
                         </div>
 
@@ -126,8 +125,8 @@
                                     max="8" value="{{linewidth}}" oninput="this.form.linewidthRange.value=this.value" />
                             </div>
                             <div class="col-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
-                                <input type="range" class="slider" name="linewidthRange" min="1" max="8" value="{{linewidth}}"
-                                    oninput="this.form.linewidthInput.value=this.value" />
+                                <input type="range" class="slider" name="linewidthRange" min="1" max="8"
+                                    value="{{linewidth}}" oninput="this.form.linewidthInput.value=this.value" />
                             </div>
                         </div>
 
@@ -141,8 +140,8 @@
                                     max="40" value="{{fontsize}}" oninput="this.form.fontsizeRange.value=this.value" />
                             </div>
                             <div class="col-8 col-sm-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
-                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="{{fontsize}}"
-                                    oninput="this.form.fontsizeInput.value=this.value" />
+                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40"
+                                    value="{{fontsize}}" oninput="this.form.fontsizeInput.value=this.value" />
                             </div>
                         </div>
 
@@ -153,11 +152,11 @@
                             <div class="col-8 col-md col-lg col-xl col-xxl">
                                 <select class="form-select" name="linestyle" id="linestyle">
 
-                                    <option value="" selected>brez</option>
-                                    <option value="-">polna</option>
-                                    <option value="--">črtkana
+                                    <option value="" {{" selected" if linestyle=="" else "" }}>brez</option>
+                                    <option value="-" {{" selected" if linestyle=="-" else "" }}>polna</option>
+                                    <option value="--" {{" selected" if linestyle=="--" else "" }}>črtkana
                                     </option>
-                                    <option value=":">pike</option>
+                                    <option value=":" {{" selected" if linestyle==":" else "" }}> pike</option>
                                 </select>
                             </div>
                         </div>
@@ -168,62 +167,57 @@
                             </div>
                             <div class="col-8 col-md col-lg col-xl col-xxl">
                                 <select class="form-select" name="marker" id="marker">
-                                    <option value="">brez</option>
-                                    <option value=".">pika</option>
-                                    <option value="o" >krožec</option>
-                                    <option value="x">križec</option>
-                                    <option value="+">plus</option>
-                                    <option value="s">kvadrat</option>
-                                    <option value="^">trikotnik</option>
-                                    <option value="D">romb</option>
-                                    <option value="*">zvezdica</option>
+                                    <option value="" {{"selected" if marker=="" else "" }}>brez</option>
+                                    <option value="." {{"selected" if marker=="." else "" }}>pika</option>
+                                    <option value="o" {{"selected" if marker=="x" else "" }}>krožec</option>
+                                    <option value="x" {{"selected" if marker=="x" else "" }}>križec</option>
+                                    <option value="+" {{"selected" if marker=="+" else "" }}>plus</option>
+                                    <option value="s" {{"selected" if marker=="s" else "" }}>kvadrat</option>
+                                    <option value="^" {{"selected" if marker=="^" else "" }}>trikotnik
+                                    </option>
+                                    <option value="D" {{"selected" if marker=="D" else "" }}>romb</option>
+                                    <option value="*" {{"selected" if marker=="*" else "" }}>zvezdica
+                                    </option>
                                 </select>
                             </div>
                         </div>
 
                     </div>
-
                     <div class="row-sm row-md col-lg-5 col-xl-5 col-xxl-5">
 
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" name="legend" id="legend">
+                            <input class="form-check-input" type="checkbox" {{"checked" if legend else "" }}
+                                name="legend" id="legend">
                             <label class="form-check-label mb-3" for="legend">
                                 prikaži legendo
                             </label>
                         </div>
 
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" name="grid" id="grid">
+                            <input class="form-check-input" type="checkbox" {{"checked" if grid else "" }} name="grid"
+                                id="grid">
                             <label class="form-check-label mb-3 " for="grid">
                                 prikaži mrežo
                             </label>
                         </div>
 
                         <div class="form-check md-3">
-
-                            <input class="form-check-input" type="checkbox" name="usetex" id="usetex">
+                            <input class="form-check-input" type="checkbox" {{"checked" if usetex else "" }}
+                                name="usetex" id="usetex">
                             <label class="form-check-label mb-3 " for="usetex">
                                 uporabi Latex
                             </label>
-
-                            <a href="#" data-toggle="tooltip"
-                                title="Upoštevaj Latex notacijo v oznakah osi in naslovu (npr. $\frac{a}{b}$).">?</a>
-
                         </div>
 
-
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" name="linefit" id="linefit"
+                            <input class="form-check-input" type="checkbox" {{"checked" if linefit else "" }} name="linefit" id="linefit"
                                 onclick="showMe('showfitcolor')">
                             <label class="form-check-label mb-3 " for="linefit">
                                 prilagodi premico
                             </label>
                         </div>
 
-
                         <div id="showfitcolor" style="display: none">
-
-
                             <div class="row mb-3 align-items-center">
                                 <div class="col-3">
                                     <input type="color" id="fitcolor" value="{{fitcolor}}" title="Choose your color">
@@ -252,9 +246,10 @@
                             }
                         </script>
 
+
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="linecolor" value="{{markercolor}}" title="Choose your color">
+                                <input type="color" id="linecolor" value="{{linecolor}}"">
                             </div>
 
                             <div class="col-9">

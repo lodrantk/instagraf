@@ -5,18 +5,17 @@ from matplotlib import rcParams
 from uuid import uuid4
 from asteval import Interpreter
 from matplotlib.ticker import ScalarFormatter
+from scipy.optimize import curve_fit
 
-
-def graph_data(plotdatax, plotdatay, title, xlabel, ylabel, fontsize, grid, usetex, legend,
+def graph_data(x, y, title, xlabel, ylabel, fontsize, grid, usetex, legend,
                      linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor):
     plt.clf()
-    """
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
-    """
-    x = list(map(int, plotdatax.split(",")))
-    y = list(map(int, plotdatax.split(",")))
+
+    x=np.array(x)
+    y=np.array(y)
 
     # default font (sans-serif)
     rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
@@ -41,12 +40,14 @@ def graph_data(plotdatax, plotdatay, title, xlabel, ylabel, fontsize, grid, uset
 
         # sigma = yerr?
         fitpar, fitcov = curve_fit(premica, xdata=x, ydata=y)
+        print(fitpar)
         k, n = fitpar
         label = '$ y = kx  + n$\n$k = %.4f \pm %.4f$, \n$ n = %.4f \pm %.4f$' % (
             fitpar[0], fitcov[0][0]**0.5, fitpar[1], fitcov[1][1]**0.5)
         plt.plot(x, k*x + n, linewidth=linewidth,
                  c=fitcolor, label=label, zorder=-5)
     
+
     plt.xlabel(str(xlabel))
     plt.ylabel(str(ylabel))
 

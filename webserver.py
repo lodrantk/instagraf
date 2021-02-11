@@ -70,8 +70,8 @@ def graph():
     xlabel = request.forms.get("xlabel")
     ylabel = request.forms.get("ylabel")
     linecolor = request.forms.get("linecolor")
-    linewidth = request.forms.get("linewidthInput")
-    fontsize = request.forms.get("fontsizeInput")
+    linewidth = request.forms.get("linewidthRange")
+    fontsize = request.forms.get("fontsizeRange")
     linestyle = request.forms.get("linestyle")
     grid = request.forms.get("grid")
     usetex = request.forms.get("usetex")
@@ -96,14 +96,14 @@ def graphcsv():
     xlabel = request.forms.get("xlabel")
     ylabel = request.forms.get("ylabel")
 
-    fontsize = request.forms.get("fontsizeInput")
+    fontsize = request.forms.get("fontsizeRange")
     grid = request.forms.get("grid")
     usetex = request.forms.get("usetex")
     legend = request.forms.get("legend")
 
     linestyle = request.forms.get("linestyle")
     linecolor = request.forms.get("linecolor")
-    linewidth = request.forms.get("linewidthInput")
+    linewidth = request.forms.get("linewidthRange")
 
     marker = request.forms.get("marker")
     markercolor = request.forms.get("markercolor")
@@ -122,18 +122,24 @@ def graphdata():
     plotdatax = request.forms.get("plotdatax")
     plotdatay = request.forms.get("plotdatay")
 
+    x = list(map(int, plotdatax.split(",")))
+    y = list(map(int, plotdatay.split(",")))
+
+    if len(x) != len(y) or len(x) == 0:
+        return "Vnešeni podatki niso ustrezni."
+
     title = request.forms.get("title")
     xlabel = request.forms.get("xlabel")
     ylabel = request.forms.get("ylabel")
 
-    fontsize = request.forms.get("fontsize")
+    fontsize = request.forms.get("fontsizeRange")
     grid = request.forms.get("grid")
     usetex = request.forms.get("usetex")
     legend = request.forms.get("legend")
 
     linestyle = request.forms.get("linestyle")
     linecolor = request.forms.get("linecolor")
-    linewidth = request.forms.get("linewidth")
+    linewidth = request.forms.get("linewidthRange")
 
     marker = request.forms.get("marker")
     markercolor = request.forms.get("markercolor")
@@ -141,7 +147,9 @@ def graphdata():
     linefit = request.forms.get("linefit")
     fitcolor = request.forms.get("fitcolor")
 
-    name = graph_data(plotdatax, plotdatay, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor)
+
+
+    name = graph_data(x, y, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor)
 
     return bottle.template("templates/graph_data.tpl", plotdatay=plotdatay, plotdatax=plotdatax, name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor)
 
