@@ -39,13 +39,14 @@
         </div>
 
         <form method="POST" action="/graph_data" enctype="multipart/form-data">
+
             <div class="container plotdata" style="background: none;">
                 <div class="row align-items-center justify-content-center">
                     <label for="plotdatax" class="col-1 col-form-label">os x: </label>
                     <div class="col-11 col-md-7 align-items-start">
                         <input type="text" class="form-control" name="plotdatax" id="plotdatax"
                             placeholder="npr. 1, 2, 3, 4, 5"
-                            onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
+                            onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')" required>
                     </div>
                 </div>
 
@@ -54,7 +55,29 @@
                     <div class="col-11 col-md-7">
                         <input type="text" class="form-control" name="plotdatay" id="plotdatay"
                             placeholder="npr. 3, 4, 5, 8, 9"
-                            onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
+                            onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')" required>
+                    </div>
+                </div>
+
+                <div id="showxerror" class="errortext" style="display: none">
+                    <div class="row align-items-center justify-content-center">
+                        <label for="xerror" class="col-1 col-form-label">napaka x: </label>
+                        <div class="col-11 col-md-7">
+                            <input type="text" class="form-control" name="xerror" id="xerror"
+                                placeholder="npr. 0.1, 0.1, 0.1"
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="showyerror" class="errortext" style="display: none">
+                    <div class="row align-items-center justify-content-center">
+                        <label for="xerror" class="col-1 col-form-label">napaka y: </label>
+                        <div class="col-11 col-md-7">
+                            <input type="text" class="form-control" name="yerror" id="yerror"
+                                placeholder="npr. 0.05, 0.08, 0.16"
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +135,6 @@
                             </div>
                         </div>
 
-
                         <div class="row mb-3 align-items-center">
                             <label for="fontsize"
                                 class="row-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">velikost
@@ -165,13 +187,33 @@
                     </div>
 
                     <div class="row-sm row-md col-lg-5 col-xl-5 col-xxl-5">
-
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" name="legend" id="legend">
-                            <label class="form-check-label mb-3" for="legend">
-                                prikaži legendo
+                            <input class="form-check-input" type="checkbox" name="hasxerror" id="hasxerror">
+                            <label class="form-check-label mb-3 " for="hasxerror">
+                                prikaži napako v x
                             </label>
                         </div>
+
+                        <!-- show color-picker for fitted line if checkbox checked -->
+                        <script type="text/javascript">
+                            $('#hasxerror').change(function () {
+                                $('#showxerror').toggle();
+                            });
+                        </script>
+
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" name="hasyerror" id="hasyerror">
+                            <label class="form-check-label mb-3 " for="hasyerror">
+                                prikaži napako v y
+                            </label>
+                        </div>
+
+                        <!-- show color-picker for fitted line if checkbox checked -->
+                        <script type="text/javascript">
+                            $('#hasyerror').change(function () {
+                                $('#showyerror').toggle();
+                            });
+                        </script>
 
                         <div class="form-check md-3">
                             <input class="form-check-input" type="checkbox" name="grid" id="grid">
@@ -232,6 +274,16 @@
                             }
                         </script>
 
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" name="legend" id="legend">
+                            <label class="form-check-label mb-3" for="legend">
+                                prikaži legendo
+                            </label>
+
+                            <a href="#" data-toggle="tooltip"
+                                title="Če smo podatkom prilagodili premico, bo v legendi enačba s parametri.">?</a>
+                        </div>
+
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
                                 <input type="color" id="linecolor" value="#BFDA30" title="Choose your color">
@@ -260,8 +312,8 @@
 
             <div class="row center-xs">
                 <div class="buttons">
-                    <input type="submit" id="graphcsv" value="nariši graf" hidden />
-                    <label for="graphcsv">nariši graf</label>
+                    <input type="submit" id="graphdata" value="nariši graf" hidden />
+                    <label for="graphdata">nariši graf</label>
                 </div>
             </div>
 

@@ -163,13 +163,6 @@
                         </div>
 
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" name="legend" id="legend">
-                            <label class="form-check-label mb-3" for="legend">
-                                prikaži legendo
-                            </label>
-                        </div>
-
-                        <div class="form-check md-3">
                             <input class="form-check-input" type="checkbox" name="grid" id="grid">
                             <label class="form-check-label mb-3 " for="grid">
                                 prikaži mrežo
@@ -228,6 +221,17 @@
 
                             }
                         </script>
+
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" name="legend" id="legend">
+                            <label class="form-check-label mb-3" for="legend">
+                                prikaži legendo
+                            </label>
+
+                            <a href="#" data-toggle="tooltip"
+                                title="Če smo podatkom prilagodili premico, bo v legendi enačba s parametri.">?</a>
+                        </div>
+
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
