@@ -85,20 +85,4 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
 
 
 
-    # if graphtype == "line":
-    #     # if "errors" == "on":
-    #     #     plt.errorbar(x, y, xerr=xerr, yerr=yerr, color=color, linestyle=linestyle, linewidth=linewidth)
-    #     if marker != "":
-    #         plt.plot(x, y, linecolor=linecolor, linestyle=linestyle,
-    #                  linewidth=linewidth, marker=marker, markersize=markersize)
-    #     else:
-    #         plt.plot(x, y, c=linecolor, linestyle=linestyle,
-    #                  linewidth=linewidth)
-    #         plt.scatter(x, y, c=markercolor, markersize=markersize, marker=marker)
-
-    # if graphtype == "scatter":
-    #     # if "errors" == "on":
-    #     #     plt.errorbar(x, y, xerr=xerr, yerr=yerr, color=color, marker=marker, markersize=markersize)
-    #     plt.scatter(x, y, c=markercolor, markersize=markersize, marker=marker)
-
-    #... line and scatter graphs are easily achived by customizing the marker and line params, no need to set specific graphtype?
+    
