@@ -33,6 +33,7 @@ So are some style features:
 ## Features
 * plot functions f(x)
 * plot data from uploaded .csv files or data from direct input (scatter or line plot)
+* plot uncertainties of data (measurements)
 * save your plots as .pdf or .png
 * customize your plots: 
     * change line and marker types, marker and line color, linewidth, fontsize ...
@@ -41,9 +42,6 @@ So are some style features:
     * fit straght line to data and get parameters
 
 **To-do list:**
-* plot from input:
-    * import from `home` to `graph`
-    * fontsize params not recognized? (returns TypeError)
 
 * FORM VALIDATION: how to?
     * validate that file is in fact `.csv`
@@ -51,12 +49,9 @@ So are some style features:
     * validate input data
 
 * function plot precision?
-* `graph_csv.tpl` currently not picking up data from `home_csv.tpl`?
+* ???choosing color parameters does nothing????
 * custom image size?
-
-* add tooltip instructions where necessary (Latex)
 * add _toolbar_ to help write function expressions: `^ -> **`, `x -> *` ...
-* match headers across pages
 * č, š, ž work in labels when plotting from home-page, but not from graph-page?
 
 
