@@ -59,7 +59,8 @@
                         <div class="row mb-3 align-items-start justify-content-center">
                             <div class="upload2 col-6">
                                 <label for="file-upload" class>naloži .csv datoteko</label>
-                                <input id="file-upload" name="uploadfile" type="file" accept=".csv" style="display:none;" class="form-control" aria-label="file example" required>
+                                <input id="file-upload" name="uploadfile" type="file" accept=".csv"
+                                    style="display:none;" class="form-control" aria-label="file example" required>
                                 <div class="invalid-feedback">Nobena datoteka ni izbrana.</div>
                             </div>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
@@ -169,17 +170,10 @@
                     <div class="row-sm row-md col-lg-5 col-xl-5 col-xxl-5">
 
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" {{"checked" if hasheader else "" }} name="hasheader" id="hasheader">
+                            <input class="form-check-input" type="checkbox" {{"checked" if hasheader else "" }}
+                                name="hasheader" id="hasheader">
                             <label class="form-check-label mb-3" for="hasheader">
                                 v prvi vrstici so imena osi
-                            </label>
-                        </div>
-
-                        <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" {{"checked" if legend else "" }}
-                                name="legend" id="legend">
-                            <label class="form-check-label mb-3" for="legend">
-                                prikaži legendo
                             </label>
                         </div>
 
@@ -200,8 +194,8 @@
                         </div>
 
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" {{"checked" if linefit else "" }} name="linefit" id="linefit"
-                                onclick="showMe('showfitcolor')">
+                            <input class="form-check-input" type="checkbox" {{"checked" if linefit else "" }}
+                                name="linefit" id="linefit" onclick="showMe('showfitcolor')">
                             <label class="form-check-label mb-3 " for="linefit">
                                 prilagodi premico
                             </label>
@@ -237,13 +231,23 @@
                             }
                         </script>
 
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" {{"checked" if legend else "" }}
+                                name="legend" id="legend">
+                            <label class="form-check-label mb-3" for="legend">
+                                prikaži legendo
+                            </label>
+
+                            <a href="#" data-toggle="tooltip"
+                                title="Če smo podatkom prilagodili premico, bo v legendi enačba s parametri.">?</a>
+                        </div>
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
                                 <input type="color" id="linecolor" value="{{linecolor}}"">
                             </div>
 
-                            <div class="col-9">
+                            <div class=" col-9">
                                 <label for="linecolor" class="form-label">barva krivulje (skozi točke)</label>
 
                             </div>
