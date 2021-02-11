@@ -65,15 +65,36 @@
                 <div class="row align-items-center justify-content-center">
                     <label for="plotdatax" class="col-1 col-form-label">os x: </label>
                     <div class="col-11 col-md-7 align-items-start">
-                        <input type="text" class="form-control" name="plotdatax" id="plotdatax"
-                            value="{{plotdatax}}" onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
+                        <input type="text" class="form-control" name="plotdatax" id="plotdatax" value="{{plotdatax}}"
+                            onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
                     </div>
                 </div>
 
                 <div class="row align-items-center justify-content-center">
                     <label for="plotdatay" class="col-1 col-form-label">os y: </label>
                     <div class="col-11 col-md-7">
-                        <input type="text" class="form-control" name="plotdatay" id="plotdatay" value="{{plotdatay}}" onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
+                        <input type="text" class="form-control" name="plotdatay" id="plotdatay" value="{{plotdatay}}"
+                            onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
+                    </div>
+                </div>
+
+                <div id="showxerror" class="errortext">
+                    <div class="row align-items-center justify-content-center">
+                        <label for="xerror" class="col-1 col-form-label">napaka x: </label>
+                        <div class="col-11 col-md-7">
+                            <input type="text" class="form-control" name="xerror" id="xerror" value="{{xerror}}"
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="showyerror" class="errortext">
+                    <div class="row align-items-center justify-content-center">
+                        <label for="xerror" class="col-1 col-form-label">napaka y: </label>
+                        <div class="col-11 col-md-7">
+                            <input type="text" class="form-control" name="yerror" id="yerror" value="{{yerror}}"
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,7 +115,8 @@
                             <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
                                 grafa </label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="title" name="title" value="{{title}}" novalidate>
+                                <input type="text" class="form-control" id="title" name="title" value="{{title}}"
+                                    novalidate>
                             </div>
                         </div>
 
@@ -186,10 +208,18 @@
                     <div class="row-sm row-md col-lg-5 col-xl-5 col-xxl-5">
 
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" {{"checked" if legend else "" }}
-                                name="legend" id="legend">
-                            <label class="form-check-label mb-3" for="legend">
-                                prikaži legendo
+                            <input class="form-check-input" type="checkbox" {{"checked" if hasxerror else "" }}
+                                name="hasxerror" id="hasxerror">
+                            <label class="form-check-label mb-3 " for="hasxerror">
+                                prikaži napako v x
+                            </label>
+                        </div>
+
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox" {{"checked" if hasyerror else "" }}
+                                name="hasyerror" id="hasyerror">
+                            <label class="form-check-label mb-3 " for="hasyerror">
+                                prikaži napako v y
                             </label>
                         </div>
 
@@ -210,8 +240,8 @@
                         </div>
 
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox" {{"checked" if linefit else "" }} name="linefit" id="linefit"
-                                onclick="showMe('showfitcolor')">
+                            <input class="form-check-input" type="checkbox" {{"checked" if linefit else "" }}
+                                name="linefit" id="linefit" onclick="showMe('showfitcolor')">
                             <label class="form-check-label mb-3 " for="linefit">
                                 prilagodi premico
                             </label>
@@ -246,13 +276,23 @@
                             }
                         </script>
 
+                        <div class="form-check md-3">
+                            <input class="form-check-input" type="checkbox"  {{"checked" if legend else "" }} name="legend" id="legend">
+                            <label class="form-check-label mb-3" for="legend">
+                                prikaži legendo
+                            </label>
+
+                            <a href="#" data-toggle="tooltip"
+                                title="Če smo podatkom prilagodili premico, bo v legendi enačba s parametri.">?</a>
+                        </div>
+
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
                                 <input type="color" id="linecolor" value="{{linecolor}}"">
                             </div>
 
-                            <div class="col-9">
+                            <div class=" col-9">
                                 <label for="linecolor" class="form-label">barva krivulje (skozi točke)</label>
 
                             </div>
