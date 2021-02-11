@@ -10,12 +10,11 @@ from matplotlib.ticker import ScalarFormatter
 def graph_data(plotdatax, plotdatay, title, xlabel, ylabel, fontsize, grid, usetex, legend,
                      linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor):
     plt.clf()
-
-"""
+    """
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
-"""
+    """
     x = list(map(int, plotdatax.split(",")))
     y = list(map(int, plotdatax.split(",")))
 
