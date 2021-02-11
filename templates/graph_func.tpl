@@ -30,7 +30,7 @@
 
         <div class="row align-items-center">
             <div>
-                <img src="graph_func/{{name}}.png" alt="slika grafa" style="height:500px;">
+                <img src="graph_func/{{name}}.png" alt="slika grafa" style="height:400px;">
             </div>
         </div>
         <div class="row align-items-center">
@@ -98,9 +98,6 @@
                             <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
                                 <input type="text" class="form-control" id="xmin" name="xmin" value="{{xmin}}">
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="xmax"
                                 class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">zgornja
                                 meja x</label>

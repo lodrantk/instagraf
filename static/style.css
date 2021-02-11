@@ -2,7 +2,6 @@ body {
     background: url(background_img.jpg);
     background-size: cover;
     font-size: 18px;
-
 }
 
 .headline {
@@ -10,8 +9,6 @@ body {
     font-size: 5rem;
     padding: 20px;
     text-align: center;
-
-
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
@@ -55,7 +52,7 @@ img {
     padding: 20px 20px 20px
 }
 
-.buttons button, .buttons label, .uploadbutton label{
+.buttons button, .buttons label, .uploadbutton label {
     text-align: center;
     height: 50px;
     line-height: 50px;
@@ -76,35 +73,32 @@ img {
     margin-left: 25px;
 }
 
-.buttons .btn4, .buttons .btn5{
+.buttons .btn4, .buttons .btn5 {
     background: rgb(61, 61, 61);
     width: 150px;
-
 }
 
-.buttons .btn5{
+.buttons .btn5 {
     width: 150px;
     margin-left: 25px;
 }
 
-.buttons .btn4:hover,.buttons .btn5:hover{
+.buttons .btn4:hover, .buttons .btn5:hover {
     background: black
 }
 
-
-.uploadbutton label{
+.uploadbutton label {
     background: rgb(231, 130, 15);
     width: 200px;
 }
 
-
-.upload2 label{
+.upload2 label {
     text-align: center;
     height: 40px;
     line-height: 40px;
     width: 180px;
     color: #ffffff;
-    background:rgb(231, 130, 15);
+    background: rgb(231, 130, 15);
     outline: none;
     cursor: pointer;
     border: none;
@@ -125,7 +119,7 @@ img {
     outline: none;
 }
 
-.invalid-feedback .nofile{
+.invalid-feedback .nofile {
     display: flex;
     justify-content: center;
     padding: 20px 20px 20px;
@@ -137,15 +131,13 @@ img {
     outline: none;
 }
 
-
-.buttons button:hover, .buttons label:hover{
+.buttons button:hover, .buttons label:hover {
     background: rgb(0, 128, 255);
 }
 
-.uploadbutton label:hover, .upload2 label:hover{
+.uploadbutton label:hover, .upload2 label:hover {
     background: rgb(212, 106, 0);
 }
-
 
 input[type=text] {
     border: none;
@@ -166,7 +158,7 @@ input[type=color] {
     border: none;
 }
 
-.plotdata label{
+.plotdata label {
     font-weight: 600;
     color: #ffffff;
 }
@@ -184,13 +176,11 @@ input[type=number] {
     opacity: 0.7;
 }
 
-
 .container {
     padding: 20px;
     background-color: #fffffffd;
     border-radius: 10px;
 }
-
 
 .slider {
     appearance: none;
@@ -216,7 +206,7 @@ input[type=number] {
     border-radius: 3px;
 }
 
-.form-check-input{
+.form-check-input {
     cursor: pointer;
     position: absolute;
     height: 20px;
@@ -232,9 +222,10 @@ input[type=number] {
     background-color: dodgerblue;
 }
 
-input[type=text]:focus, input[type=text]:hover, input[type=number]:hover, .slider:hover, .form-select:hover, .form-check-input:hover{
+input[type=text]:focus, input[type=text]:hover, input[type=number]:hover, .slider:hover, .form-select:hover, .form-check-input:hover {
     opacity: 1;
 }
+
 .pt-3-half {
     padding-top: 1.4rem;
-    }
+}

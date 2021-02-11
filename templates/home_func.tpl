@@ -18,7 +18,7 @@
 <body>
     <div class="container-fluid">
         <div class="row" style="padding: 20px;">
-            <h1 class="display-1">instagraf</h1>
+            <h1 class="display-1">instagraf funkcije</h1>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
@@ -29,7 +29,7 @@
             crossorigin="anonymous"></script>
 
 
-        <form method="post" action="/graph_func" enctype="multipart/form-data" class="was-validated">
+        <form method="post" action="/graph_func" enctype="multipart/form-data" class="needs-validation">
             <div class="container">
                 <div class="row align-items-start">
                     <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">

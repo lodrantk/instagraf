@@ -13,7 +13,7 @@
 <body>
     <div class="page">
         <div class="row center-xs">
-            <h2 class="hero-headline"> tvoj instagraf</h2>
+            <h2 class="hero-headline">tvoj instagraf</h2>
         </div>
         <div class="wrap container-fluid">
             <div class="row center-xs">

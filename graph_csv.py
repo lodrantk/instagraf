@@ -7,21 +7,6 @@ from pandas import read_csv
 from scipy.optimize import curve_fit
 from matplotlib.ticker import ScalarFormatter
 
-
-"""
-- file
-- fontsize, usetex
-- title, legend, xlabel, ylabel
-- linecolor, linestyle, linewidth
-- markercolor, marker
-- linefit, fitcolor
-- grid
-- graphtype: scatter, line, bar, pie (x je lahko tudi string?)
-... lahko se pa grem fizika in omogočam le plottanje številk in razširim fittanje premice na fittanje poljubne krivulje
-- errors: plt.errorbar; to fiziki rabimo
-- izberi kateri podatek je v katerem stolpcu (dropdown: x, y, xerr, yerr)
-- kaj pa plottanje več funkcij iz .csv hkrati ... 
-"""
 def get_data(uploadfile, hasheader):
     if hasheader != "on":
         dat = read_csv(uploadfile.file, header=None)

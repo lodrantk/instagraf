@@ -18,7 +18,7 @@
     <div class="container-fluid">
 
         <div class="row" style="padding: 20px;">
-            <h1 class="display-1">instagraf podatkov</h1>
+            <h1 class="display-1">tvoj instagraf</h1>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
@@ -49,7 +49,7 @@
                 </a>
             </div>
         </div>
-        <form method="POST" action="/graph_csv" enctype="multipart/form-data" class="was-validated" novalidate>
+        <form method="POST" action="/graph_csv" enctype="multipart/form-data" class="was-validated">
 
             <div class="container">
 
@@ -73,16 +73,11 @@
                             }
                         </script>
 
-
-
-
-
-
                         <div class="row mb-3">
                             <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
                                 grafa </label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="title" name="title" value="{{title}}" novalidate>
+                                <input type="text" class="form-control" id="title" name="title" value="{{title}}">
                             </div>
                         </div>
 
@@ -155,16 +150,16 @@
                             </div>
                             <div class="col-8 col-md col-lg col-xl col-xxl">
                                 <select class="form-select" name="marker" id="marker">
-                                    <option value="" {{"selected" if linestyle=="" else "" }}>brez</option>
-                                    <option value="." {{"selected" if linestyle=="." else "" }}>pika</option>
-                                    <option value="o" {{"selected" if linestyle=="x" else "" }}>krožec</option>
-                                    <option value="x" {{"selected" if linestyle=="x" else "" }}>križec</option>
-                                    <option value="+" {{"selected" if linestyle=="+" else "" }}>plus</option>
-                                    <option value="s" {{"selected" if linestyle=="s" else "" }}>kvadrat</option>
-                                    <option value="^" {{"selected" if linestyle=="^" else "" }}>trikotnik
+                                    <option value="" {{"selected" if marker=="" else "" }}>brez</option>
+                                    <option value="." {{"selected" if marker=="." else "" }}>pika</option>
+                                    <option value="o" {{"selected" if marker=="o" else "" }}>krožec</option>
+                                    <option value="x" {{"selected" if marker=="x" else "" }}>križec</option>
+                                    <option value="+" {{"selected" if marker=="+" else "" }}>plus</option>
+                                    <option value="s" {{"selected" if marker=="s" else "" }}>kvadrat</option>
+                                    <option value="^" {{"selected" if marker=="^" else "" }}>trikotnik
                                     </option>
-                                    <option value="D" {{"selected" if linestyle=="D" else "" }}>romb</option>
-                                    <option value="*" {{"selected" if linestyle=="*" else "" }}>zvezdica
+                                    <option value="D" {{"selected" if marker=="D" else "" }}>romb</option>
+                                    <option value="*" {{"selected" if marker=="*" else "" }}>zvezdica
                                     </option>
                                 </select>
                             </div>
