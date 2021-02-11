@@ -122,8 +122,8 @@ def graphdata():
     plotdatax = request.forms.get("plotdatax")
     plotdatay = request.forms.get("plotdatay")
 
-    x = list(map(int, plotdatax.split(",")))
-    y = list(map(int, plotdatay.split(",")))
+    x = list(map(float, plotdatax.split(",")))
+    y = list(map(float, plotdatay.split(",")))
 
     if len(x) != len(y) or len(x) == 0:
         return "Vnešeni podatki niso ustrezni."
@@ -147,11 +147,28 @@ def graphdata():
     linefit = request.forms.get("linefit")
     fitcolor = request.forms.get("fitcolor")
 
+    hasyerror= request.forms.get("hasyerror")
+    yerror = request.forms.get("yerror")
 
+    hasxerror= request.forms.get("hasxerror")
+    xerror = request.forms.get("xerror")
 
-    name = graph_data(x, y, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor)
+    if hasxerror == "on":
+        xerr = list(map(float, xerror.split(",")))
+        if len(xerr) != len(x):
+            return "Vnešeni podatki niso ustrezni."
+    else:
+        xerr=None
+    if hasyerror == "on":
+        yerr = list(map(float, yerror.split(",")))
+        if len(yerr) != len(x):
+            return "Vnešeni podatki niso ustrezni."
+    else:
+        yerr=None
 
-    return bottle.template("templates/graph_data.tpl", plotdatay=plotdatay, plotdatax=plotdatax, name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor)
+    name = graph_data(x, y, hasxerror, xerr, hasyerror, yerr, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor)
+
+    return bottle.template("templates/graph_data.tpl", hasxerror=hasxerror, hasyerror=hasyerror, xerror=xerror, yerror=yerror, plotdatay=plotdatay, plotdatax=plotdatax, name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor)
 
 
 bottle.run(debug=True, host="0.0.0.0", port=80, reloader=True)
