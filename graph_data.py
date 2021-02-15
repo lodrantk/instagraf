@@ -14,7 +14,7 @@ def graph_data(x, y, hasxerror, xerr, hasyerror, yerr, title, xlabel, ylabel, fo
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
-
+    
     x = np.array(x)
     y = np.array(y)
 

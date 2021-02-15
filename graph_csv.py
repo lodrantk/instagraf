@@ -20,7 +20,7 @@ def get_data(uploadfile, hasheader):
     ylabel = list(dat.columns)[1]
 
     return x, y, xlabel, ylabel
-
+    
 def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader):
     plt.clf()
     rcParams['font.size'] = fontsize
