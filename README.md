@@ -47,7 +47,7 @@ So are some style features:
     * validate that file is uploaded (client-side), is in fact `.csv` and that data is plottable (no double commas) (server-side)
     * validate input formula (server-side)
     * validate input data (equal lengths of all data sets) (server-side or client-side)
-    * all other form input fileds are fool-proof? ... what about very large files, very data sets, very wide domains?
+    * all other form input fileds are fool-proof? ... what about very large files, very large data sets, very wide domains?
 
 * function plot precision?
 * customizable image size?
