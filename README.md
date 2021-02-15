@@ -44,16 +44,15 @@ So are some style features:
 **To-do list:**
 
 * FORM VALIDATION: how to?
-    * validate that file is in fact `.csv`
-    * validate formula
-    * validate input data
+    * validate that file is uploaded (client-side), is in fact `.csv` and that data is plottable (no double commas) (server-side)
+    * validate input formula (server-side)
+    * validate input data (equal lengths of all data sets) (server-side or client-side)
+    * all other form input fileds are fool-proof? ... what about very large files, very data sets, very wide domains?
 
 * function plot precision?
-* ???choosing color parameters does nothing????
-* custom image size?
+* customizable image size?
 * add _toolbar_ to help write function expressions: `^ -> **`, `x -> *` ...
 * č, š, ž work in labels when plotting from home-page, but not from graph-page?
-
 
 ## Status
 My project is: _in progress_.
