@@ -12,6 +12,11 @@
 
 
     <title>Instagraf</title>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 
 
@@ -27,7 +32,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
             integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
             crossorigin="anonymous"></script>
-
+    
 
         <form method="post" action="/graph_func" enctype="multipart/form-data" class="needs-validation">
             <div class="container">
@@ -74,13 +79,13 @@
                                 class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">spodnja
                                 meja x</label>
                             <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
-                                <input type="text" class="form-control" id="xmin" name="xmin" value="0">
+                                <input type="number" class="form-control" id="xmin" name="xmin" value="0">
                             </div>
                             <label for="xmax"
                                 class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">zgornja
                                 meja x</label>
                             <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
-                                <input type="text" class="form-control" id="xmax" name="xmax" value="5">
+                                <input type="number" class="form-control" id="xmax" name="xmax" value="5">
                             </div>
                         </div>
 
@@ -104,10 +109,10 @@
                                 črk</label>
                             <div class="col-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
                                 <input type="number" class="form-control" id="fontsize" name="fontsizeInput" min="10"
-                                    max="40" value="20" oninput="this.form.fontsizeRange.value=this.value" />
+                                    max="40" value="18" oninput="this.form.fontsizeRange.value=this.value" />
                             </div>
                             <div class="col-8 col-sm-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
-                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="20"
+                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="18"
                                     oninput="this.form.fontsizeInput.value=this.value" />
                             </div>
                         </div>
@@ -119,6 +124,7 @@
                             <label class="form-check-label mb-3" for="legend">
                                 prikaži legendo
                             </label>
+
                         </div>
 
                         <div class="form-check md-3">
@@ -137,7 +143,8 @@
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="linecolor" value="#BFDA30" title="Choose your color">
+                                <input type="color" id="linecolor" name="linecolor" value="dodgerblue"
+                                    title="Choose your color">
                             </div>
 
                             <div class="col-9">
@@ -183,9 +190,6 @@
             </a>
         </div>
     </div>
-
-
-
 
 
 

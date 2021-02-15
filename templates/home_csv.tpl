@@ -21,11 +21,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
         crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
 </head>
 
 
@@ -108,10 +108,10 @@
                                 črk</label>
                             <div class="col-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
                                 <input type="number" class="form-control" id="fontsize" name="fontsizeInput" min="10"
-                                    max="40" value="25" oninput="this.form.fontsizeRange.value=this.value" />
+                                    max="40" value="18" oninput="this.form.fontsizeRange.value=this.value" />
                             </div>
                             <div class="col-8 col-sm-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
-                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="25"
+                                <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="18"
                                     oninput="this.form.fontsizeInput.value=this.value" />
                             </div>
                         </div>
@@ -196,7 +196,7 @@
 
                             <div class="row mb-3 align-items-center">
                                 <div class="col-3">
-                                    <input type="color" id="fitcolor" value="#BFDA30" title="Choose your color">
+                                    <input type="color" id="fitcolor" name ="fitcolor" value="dodgerblue" title="Choose your color">
                                 </div>
 
                                 <div class="col-9">
@@ -232,10 +232,9 @@
                                 title="Če smo podatkom prilagodili premico, bo v legendi enačba s parametri.">?</a>
                         </div>
 
-
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="linecolor" value="#BFDA30" title="Choose your color">
+                                <input type="color" id="linecolor" name="linecolor" value="dodgerblue" title="Choose your color">
                             </div>
 
                             <div class="col-9">
@@ -246,7 +245,7 @@
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="markercolor" value="#BFDA30" title="Choose your color">
+                                <input type="color" id="markercolor" name="markercolor" value="dodgerblue" title="Choose your color">
                             </div>
 
                             <div class="col-9">
@@ -277,14 +276,6 @@
         </div>
     </div>
 
-
-
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
 
 </body>
 

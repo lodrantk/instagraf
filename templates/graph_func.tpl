@@ -27,6 +27,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
             integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
             crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
 
         <div class="row align-items-center">
             <div>
@@ -144,6 +149,7 @@
                             </label>
                         </div>
 
+
                         <div class="form-check md-3">
                             <input class="form-check-input" type="checkbox" {{"checked" if grid else "" }} name="grid"
                                 id="grid">
@@ -159,11 +165,12 @@
                                 uporabi Latex
                             </label>
                         </div>
-                        
+
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="linecolor" value="{{linecolor}}" title="Choose your color">
+                                <input type="color" id="linecolor" name="linecolor" value="{{linecolor}}"
+                                    title="Choose your color">
                             </div>
 
                             <div class="col-9">

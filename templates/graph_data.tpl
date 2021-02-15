@@ -241,43 +241,27 @@
 
                         <div class="form-check md-3">
                             <input class="form-check-input" type="checkbox" {{"checked" if linefit else "" }}
-                                name="linefit" id="linefit" onclick="showMe('showfitcolor')">
+                                name="linefit" id="linefit">
                             <label class="form-check-label mb-3 " for="linefit">
                                 prilagodi premico
                             </label>
                         </div>
 
-                        <div id="showfitcolor" style="display: none">
-                            <div class="row mb-3 align-items-center">
-                                <div class="col-3">
-                                    <input type="color" id="fitcolor" value="{{fitcolor}}" title="Choose your color">
-                                </div>
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-3">
+                                <input type="color" id="fitcolor" name="fitcolor" value="{{fitcolor}}"
+                                    title="Choose your color">
+                            </div>
 
-                                <div class="col-9">
-                                    <label for="fitcolor" class="form-label">barva premice</label>
+                            <div class="col-9">
+                                <label for="fitcolor" class="form-label">barva premice</label>
 
-                                </div>
                             </div>
                         </div>
 
-                        <!-- show color-picker for fitted line if checkbox checked -->
-                        <script>
-                            function showMe(box) {
-                                var chboxs = document.getElementsByName("linefit");
-                                var vis = "none";
-                                for (var i = 0; i < chboxs.length; i++) {
-                                    if (chboxs[i].checked) {
-                                        vis = "block";
-                                        break;
-                                    }
-                                }
-                                document.getElementById(box).style.display = vis;
-
-                            }
-                        </script>
-
                         <div class="form-check md-3">
-                            <input class="form-check-input" type="checkbox"  {{"checked" if legend else "" }} name="legend" id="legend">
+                            <input class="form-check-input" type="checkbox" {{"checked" if legend else "" }}
+                                name="legend" id="legend">
                             <label class="form-check-label mb-3" for="legend">
                                 prikaži legendo
                             </label>
@@ -289,7 +273,7 @@
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="linecolor" value="{{linecolor}}"">
+                                <input type="color" id="linecolor" name="linecolor" value="{{linecolor}}">
                             </div>
 
                             <div class=" col-9">
@@ -300,7 +284,8 @@
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="markercolor" value="{{markercolor}}" title="Choose your color">
+                                <input type="color" id="markercolor" name="markercolor" value="{{markercolor}}"
+                                    title="Choose your color">
                             </div>
 
                             <div class="col-9">
