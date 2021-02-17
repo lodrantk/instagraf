@@ -28,10 +28,10 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
 
     #set domain
     if xmin == "" or xmax == "":
-        x = np.linspace(0, 5, 100)
+        x = np.linspace(0, 5, 100000)
     else:
         # both limits need to be set!
-        x = np.linspace(float(xmin), float(xmax), 1000) #how can I properly set the precision??
+        x = np.linspace(float(xmin), float(xmax), 100000) #how can I properly set the precision??
     
     """
     #set y-limits
