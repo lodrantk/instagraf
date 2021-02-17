@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <form method="post" action="/graph_func">
+    <form method="POST" action="/graph_func" enctype="multipart/form-data">
         <div class="container">
             <div class="row align-items-start">
                 <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
@@ -77,7 +77,7 @@
                         <div class="row-sm col-md col-lg col-xl col-xxl">
 
                             <input type="text" class="form-control" id="function" name="function"
-                                value="sin(x)**2 + 4*exp(6*x-2)" required>
+                                value="{{function}}" required>
                         </div>
                     </div>
 

@@ -41,7 +41,7 @@
             crossorigin="anonymous"></script>
 
 
-        <form method="post" action="/graph_func" enctype="multipart/form-data" class="needs-validation">
+        <form method="post" action="/graph_func" enctype="multipart/form-data">
             <div class="container">
                 <div class="row align-items-start">
                     <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
