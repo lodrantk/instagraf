@@ -21,11 +21,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
         crossorigin="anonymous"></script>
-        <script>
-            $(document).ready(function () {
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-        </script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 
 
@@ -36,31 +36,36 @@
             <h1 class="display-1">instagraf podatkov</h1>
         </div>
 
-        <form method="POST" action="/graph_csv" enctype="multipart/form-data" class="needs-validation">
-            <div class="row align-items-center justify-content-center">
-                <div class="uploadbutton">
-                    <label for="file-upload">naloži .csv datoteko</label>
-                    <input id="file-upload" name="uploadfile" type="file" style="display:none;" accept=".csv"
-                        class="form-control" aria-label="file example" required>
-                    <div for="file-upload" class="invalid-feedback nofile">Nobena datoteka ni izbrana.</div>
-                </div>
+        <form method="POST" action="/graph_csv" enctype="multipart/form-data">
 
-                <div class="uploadname">
-                    <label id="file-name"></label>
-                </div>
 
-                <script>
-                    document.querySelector("#file-upload").onchange = function () {
-                        document.querySelector("#file-name").textContent = this.files[0].name;
-                    }
-                </script>
-
-            </div>
+            <script>
+                document.querySelector("#file-upload").onchange = function () {
+                    document.querySelector("#file-name").textContent = this.files[0].name;
+                }
+            </script>
 
             <div class="container">
                 <div class="row align-items-start">
                     <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
 
+                        <div class="row mb-3 align-items-start justify-content-center">
+                            <div class="upload2 col-6 was-validated">
+                                <label for="file-upload" class>naloži .csv datoteko</label>
+                                <input id="file-upload" name="uploadfile" type="file" accept=".csv"
+                                    style="display:none;" class="form-control" aria-label="file example" required>
+                                <div class="invalid-feedback">Nobena datoteka ni izbrana.</div>
+                            </div>
+                            <div class="row-sm col-md col-lg col-xl col-xxl">
+                                <label class="col-form-label" id="file-name" style="color: black;"></label>
+                            </div>
+                        </div>
+
+                        <script>
+                            document.querySelector("#file-upload").onchange = function () {
+                                document.querySelector("#file-name").textContent = this.files[0].name;
+                            }
+                        </script>
                         <div class="row mb-3">
                             <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
                                 grafa </label>
@@ -196,7 +201,8 @@
 
                             <div class="row mb-3 align-items-center">
                                 <div class="col-3">
-                                    <input type="color" id="fitcolor" name ="fitcolor" value="dodgerblue" title="Choose your color">
+                                    <input type="color" id="fitcolor" name="fitcolor" value="dodgerblue"
+                                        title="Choose your color">
                                 </div>
 
                                 <div class="col-9">
@@ -234,7 +240,8 @@
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="linecolor" name="linecolor" value="dodgerblue" title="Choose your color">
+                                <input type="color" id="linecolor" name="linecolor" value="dodgerblue"
+                                    title="Choose your color">
                             </div>
 
                             <div class="col-9">
@@ -245,7 +252,8 @@
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="markercolor" name="markercolor" value="dodgerblue" title="Choose your color">
+                                <input type="color" id="markercolor" name="markercolor" value="dodgerblue"
+                                    title="Choose your color">
                             </div>
 
                             <div class="col-9">
@@ -253,9 +261,9 @@
 
                             </div>
                         </div>
-
                     </div>
                 </div>
+
             </div>
 
             <div class="row center-xs">

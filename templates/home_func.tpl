@@ -10,8 +10,15 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style.css" type="text/css">
 
-
     <title>Instagraf</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
@@ -32,17 +39,20 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
             integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
             crossorigin="anonymous"></script>
-    
+
 
         <form method="post" action="/graph_func" enctype="multipart/form-data" class="needs-validation">
             <div class="container">
                 <div class="row align-items-start">
                     <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
                         <div class="row mb-3">
-                            <label for="function"
-                                class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">funkcija f(x) =
-                            </label>
+                            <div class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">
+                                <label for="function">funkcija f(x) =</label>
+                                <a href="#" data-toggle="tooltip"
+                                    title="seštevanje: +, odštevanje: -, množenje: *, deljenje: /, potenciranje: **, koren: sqrt(x), sinus: sin(x), eksponent: exp(x) ...">!</a>
+                            </div>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
+
                                 <input type="text" class="form-control" id="function" name="function"
                                     value="sin(x)**2 + 4*exp(6*x-2)" required>
                             </div>
@@ -79,13 +89,13 @@
                                 class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">spodnja
                                 meja x</label>
                             <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
-                                <input type="number" class="form-control" id="xmin" name="xmin" value="0">
+                                <input type="number" step="any" class="form-control" id="xmin" name="xmin" value="0">
                             </div>
                             <label for="xmax"
                                 class="col-6 col-md-3 col-lg-3 col-xl-3 col-xxl-3 control-label col-form-label">zgornja
                                 meja x</label>
                             <div class="col-6 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
-                                <input type="number" class="form-control" id="xmax" name="xmax" value="5">
+                                <input type="number" step="any" class="form-control" id="xmax" name="xmax" value="5">
                             </div>
                         </div>
 
@@ -124,6 +134,8 @@
                             <label class="form-check-label mb-3" for="legend">
                                 prikaži legendo
                             </label>
+                            <a href="#" data-toggle="tooltip"
+                                    title="V legendi bo prikazana podana formula funkcije.">?</a>
 
                         </div>
 
@@ -139,6 +151,8 @@
                             <label class="form-check-label mb-3 " for="usetex">
                                 uporabi Latex
                             </label>
+                            <a href="#" data-toggle="tooltip"
+                            title="Upoštevaj Latex notacijo v oznakah osi in naslovu (npr. $\frac{a}{b}$).">?</a>
                         </div>
 
                         <div class="row mb-3 align-items-center">
@@ -169,7 +183,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 

@@ -9,15 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style.css" type="text/css">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
-
-
 
     <title>Instagraf</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
         integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
         crossorigin="anonymous"></script>
@@ -37,26 +32,20 @@
         <div class="row justify-content-center " style="padding: 20px;">
             <h1 class="display-1">tvoj instagraf</h1>
         </div>
-
-        <div class="row align-items-center">
-            <div>
-                <img src="graph_data/{{name}}.png" alt="slika grafa" style="height:400px;">
+        <div id="showimage">
+            <div class="row align-items-center">
+                <div>
+                    <img src="graph_data/{{name}}.png" alt="slika-grafa" style="height:400px;">
+                </div>
             </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="buttons">
-                <a href="graph_data/{{name}}.pdf" download="moj_instagraf">
-                    <button>prenesi .pdf</button>
-                </a>
-                <a href="graph_data/{{name}}.png" download="moj_instagraf">
-                    <button class="btn2">prenesi .png</button></a>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="buttons">
-                <a href="/home_data">
-                    <button class="btn4">pojdi nazaj</button>
-                </a>
+            <div class="row align-items-center">
+                <div class="buttons">
+                    <a href="graph_data/{{name}}.pdf" download="moj_instagraf">
+                        <button>prenesi .pdf</button>
+                    </a>
+                    <a href="graph_data/{{name}}.png" download="moj_instagraf">
+                        <button class="btn2">prenesi .png</button></a>
+                </div>
             </div>
         </div>
 
@@ -174,11 +163,11 @@
                             <div class="col-8 col-md col-lg col-xl col-xxl">
                                 <select class="form-select" name="linestyle" id="linestyle">
 
-                                    <option value="" {{" selected" if linestyle=="" else "" }}>brez</option>
-                                    <option value="-" {{" selected" if linestyle=="-" else "" }}>polna</option>
-                                    <option value="--" {{" selected" if linestyle=="--" else "" }}>črtkana
+                                    <option value="" {{"selected" if linestyle=="" else "" }}>brez</option>
+                                    <option value="-" {{"selected" if linestyle=="-" else "" }}>polna</option>
+                                    <option value="--" {{"selected" if linestyle=="--" else "" }}>črtkana
                                     </option>
-                                    <option value=":" {{" selected" if linestyle==":" else "" }}> pike</option>
+                                    <option value=":" {{"selected" if linestyle==":" else "" }}> pike</option>
                                 </select>
                             </div>
                         </div>
@@ -191,7 +180,7 @@
                                 <select class="form-select" name="marker" id="marker">
                                     <option value="" {{"selected" if marker=="" else "" }}>brez</option>
                                     <option value="." {{"selected" if marker=="." else "" }}>pika</option>
-                                    <option value="o" {{"selected" if marker=="x" else "" }}>krožec</option>
+                                    <option value="o" {{"selected" if marker=="o" else "" }}>krožec</option>
                                     <option value="x" {{"selected" if marker=="x" else "" }}>križec</option>
                                     <option value="+" {{"selected" if marker=="+" else "" }}>plus</option>
                                     <option value="s" {{"selected" if marker=="s" else "" }}>kvadrat</option>
@@ -237,6 +226,8 @@
                             <label class="form-check-label mb-3 " for="usetex">
                                 uporabi Latex
                             </label>
+                            <a href="#" data-toggle="tooltip"
+                            title="Upoštevaj Latex notacijo v oznakah osi in naslovu (npr. $\frac{a}{b}$).">?</a>
                         </div>
 
                         <div class="form-check md-3">
@@ -296,17 +287,26 @@
 
                     </div>
                 </div>
-            </div>
-
-            <div class="row center-xs">
-                <div class="buttons">
-                    <input type="submit" id="graphcsv" value="nariši graf" hidden />
-                    <label for="graphcsv">nariši graf</label>
+                <div class="row align-items-center justify-content-center">
+                    <div style="font-weight: 600; color: red;" class="text-center">{{errormessage}}</div>
                 </div>
             </div>
 
+            <div class="row align-items-center justify-content-center">
+                <div class="uploadbutton">
+                    <input type="submit" id="narisi" value="ponovno nariši graf" hidden />
+                    <label for="narisi">ponovno nariši graf</label>
+                </div>
+            </div>
         </form>
 
+        <div class="row align-items-center">
+            <div class="buttons">
+                <a href="/">
+                    <button class="btn4">na prvo stran</button>
+                </a>
+            </div>
+        </div>
     </div>
 
 </body>

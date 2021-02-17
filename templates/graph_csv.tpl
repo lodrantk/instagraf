@@ -12,6 +12,20 @@
 
 
     <title>Instagraf</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 
 <body>
@@ -28,43 +42,39 @@
             integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
             crossorigin="anonymous"></script>
 
-        <div class="row align-items-center">
-            <div>
-                <img src="graph_csv/{{name}}.png" alt="slika grafa" style="height:400px;">
+        <div id="showimage">
+
+            <div class="row align-items-center">
+                <div>
+                    <img src="graph_csv/{{name}}.png" alt="slika grafa" style="height:400px;">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="buttons">
+                    <a href="graph_csv/{{name}}.pdf" download="moj_instagraf">
+                        <button>prenesi .pdf</button>
+                    </a>
+                    <a href="graph_csv/{{name}}.png" download="moj_instagraf">
+                        <button class="btn2">prenesi .png</button></a>
+                </div>
             </div>
         </div>
-        <div class="row align-items-center">
-            <div class="buttons">
-                <a href="graph_csv/{{name}}.pdf" download="moj_instagraf">
-                    <button>prenesi .pdf</button>
-                </a>
-                <a href="graph_csv/{{name}}.png" download="moj_instagraf">
-                    <button class="btn2">prenesi .png</button></a>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="buttons">
-                <a href="/home_csv">
-                    <button class="btn4">pojdi nazaj</button>
-                </a>
-            </div>
-        </div>
-        <form method="POST" action="/graph_csv" enctype="multipart/form-data" class="was-validated">
+
+        <form method="POST" action="/graph_csv" enctype="multipart/form-data">
 
             <div class="container">
 
                 <div class="row align-items-start">
                     <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
-
                         <div class="row mb-3 align-items-start justify-content-center">
-                            <div class="upload2 col-6">
+                            <div class="upload2 col-6 was-validated">
                                 <label for="file-upload" class>naloži .csv datoteko</label>
                                 <input id="file-upload" name="uploadfile" type="file" accept=".csv"
                                     style="display:none;" class="form-control" aria-label="file example" required>
                                 <div class="invalid-feedback">Nobena datoteka ni izbrana.</div>
                             </div>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <label class="col-form-label" id="file-name"></label>
+                                <label class="col-form-label" id="file-name" style="color: black;"></label>
                             </div>
                         </div>
 
@@ -136,11 +146,11 @@
                             <div class="col-8 col-md col-lg col-xl col-xxl">
                                 <select class="form-select" name="linestyle" id="linestyle">
 
-                                    <option value="" {{" selected" if linestyle=="" else "" }}>brez</option>
-                                    <option value="-" {{" selected" if linestyle=="-" else "" }}>polna</option>
-                                    <option value="--" {{" selected" if linestyle=="--" else "" }}>črtkana
+                                    <option value="" {{"selected" if linestyle=="" else "" }}>brez</option>
+                                    <option value="-" {{"selected" if linestyle=="-" else "" }}>polna</option>
+                                    <option value="--" {{"selected" if linestyle=="--" else "" }}>črtkana
                                     </option>
-                                    <option value=":" {{" selected" if linestyle==":" else "" }}> pike</option>
+                                    <option value=":" {{"selected" if linestyle==":" else "" }}> pike</option>
                                 </select>
                             </div>
                         </div>
@@ -191,6 +201,8 @@
                             <label class="form-check-label mb-3 " for="usetex">
                                 uporabi Latex
                             </label>
+                            <a href="#" data-toggle="tooltip"
+                                title="Upoštevaj Latex notacijo v oznakah osi in naslovu (npr. $\frac{a}{b}$).">?</a>
                         </div>
 
                         <div class="form-check md-3">
@@ -203,7 +215,8 @@
 
                         <div class="row mb-3 align-items-center">
                             <div class="col-3">
-                                <input type="color" id="fitcolor" name="fitcolor" value="{{fitcolor}}" title="Choose your color">
+                                <input type="color" id="fitcolor" name="fitcolor" value="{{fitcolor}}"
+                                    title="Choose your color">
                             </div>
 
                             <div class="col-9">
@@ -250,6 +263,10 @@
 
                     </div>
                 </div>
+                <div class="row">
+                    <div style="font-weight: 600; color: red;" class="text-center">{{errormessage}}</div>
+                </div>
+
             </div>
             <div class="row align-items-center justify-content-center">
                 <div class="uploadbutton">
@@ -257,12 +274,16 @@
                     <label for="narisi">ponovno nariši graf</label>
                 </div>
             </div>
-
         </form>
 
-
+        <div class="row align-items-center">
+            <div class="buttons">
+                <a href="/">
+                    <button class="btn4">na prvo stran</button>
+                </a>
+            </div>
+        </div>
     </div>
-
 
 
 
