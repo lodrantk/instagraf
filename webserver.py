@@ -130,7 +130,7 @@ def graphcsv():
     try:
         name = graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
                      linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader)
-        return bottle.template("templates/graph_csv.tpl", errormessage="error_image", name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
+        return bottle.template("templates/graph_csv.tpl", errormessage="", name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
     except Exception:
         errormessage="Izbrana datoteka ni ustrezna."
         return bottle.template("templates/graph_csv.tpl", errormessage=errormessage, name="error_image", title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
