@@ -8,15 +8,15 @@ from matplotlib.ticker import ScalarFormatter
 from scipy.optimize import curve_fit
 
 
-def graph_data(x, y, hasxerror, xerr, hasyerror, yerr, title, xlabel, ylabel, fontsize, grid, usetex, legend,
+def graph_data(plotdatax, plotdatay, hasxerror, xerror, hasyerror, yerror, title, xlabel, ylabel, fontsize, grid, usetex, legend,
                linestyle, linecolor, linewidth, marker, markercolor,linefit, fitcolor):
     plt.clf()
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
-    
-    x = np.array(x)
-    y = np.array(y)
+
+    x = np.array(list(map(float, plotdatax.split(","))))
+    y = np.array(list(map(float, plotdatay.split(","))))
 
     # default font (sans-serif)
     rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
@@ -25,6 +25,14 @@ def graph_data(x, y, hasxerror, xerr, hasyerror, yerr, title, xlabel, ylabel, fo
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
         rc("text", usetex=True)
 
+    if hasxerror == "on":
+        xerr = list(map(float, xerror.split(",")))
+    else: xerr=[0]*len(x)
+    if hasyerror == "on":
+        yerr = list(map(float, yerror.split(",")))
+    else:
+        yerr=[0]*len(y)
+    
     if marker == "":
         plt.plot(x, y, color=linecolor, linestyle=linestyle,
                  linewidth=linewidth)
