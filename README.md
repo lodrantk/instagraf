@@ -42,6 +42,8 @@ So are some style features:
     * fit straght line to data and get parameters
 
 **To-do list:**
+* ĆČŽŠ work in labels when plotting from home-page, but not graph-page???
+
 * FORM VALIDATION: ... at the moment it is all done _server-side_, except for item (1.). If any of the functions for generating plots return ANY error (Exception), a simple error message is displayed at the bottom of the form.
     1. validate that file is uploaded (client-side)
     2. validate that file is in fact `.csv` and that data is plottable (no double commas) (server-side)
@@ -52,6 +54,7 @@ So are some style features:
 * function plot precision? ... at the moment fixed at 100000 points between x_min and _max.
 * customizable image size?
 * add _toolbar_ to help write function expressions: `^ -> **`, `x -> *` ... at the moment solved with a tooltip
+
 
 ## Status
 My project is: _in progress_.
