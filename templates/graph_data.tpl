@@ -55,7 +55,7 @@
                     <label for="plotdatax" class="col-1 col-form-label">os x: </label>
                     <div class="col-11 col-md-7 align-items-start">
                         <input type="text" class="form-control" name="plotdatax" id="plotdatax" value="{{plotdatax}}"
-                            onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
+                            onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')" required>
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@
                     <label for="plotdatay" class="col-1 col-form-label">os y: </label>
                     <div class="col-11 col-md-7">
                         <input type="text" class="form-control" name="plotdatay" id="plotdatay" value="{{plotdatay}}"
-                            onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" required>
+                            onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')" required>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                         <label for="xerror" class="col-1 col-form-label">napaka x: </label>
                         <div class="col-11 col-md-7">
                             <input type="text" class="form-control" name="xerror" id="xerror" value="{{xerror}}"
-                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')">
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         <label for="xerror" class="col-1 col-form-label">napaka y: </label>
                         <div class="col-11 col-md-7">
                             <input type="text" class="form-control" name="yerror" id="yerror" value="{{yerror}}"
-                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')">
                         </div>
                     </div>
                 </div>

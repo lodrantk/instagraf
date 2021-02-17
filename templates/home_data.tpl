@@ -43,7 +43,7 @@
                     <div class="col-11 col-md-7 align-items-start">
                         <input type="text" class="form-control" name="plotdatax" id="plotdatax"
                             placeholder="npr. 1, 2, 3, 4, 5"
-                            onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')" required>
+                            onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')" required>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                     <div class="col-11 col-md-7">
                         <input type="text" class="form-control" name="plotdatay" id="plotdatay"
                             placeholder="npr. 3, 4, 5, 8, 9"
-                            onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')" required>
+                            onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')" required>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
                         <div class="col-11 col-md-7">
                             <input type="text" class="form-control" name="xerror" id="xerror"
                                 placeholder="npr. 0.1, 0.1, 0.1"
-                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')">
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         <div class="col-11 col-md-7">
                             <input type="text" class="form-control" name="yerror" id="yerror"
                                 placeholder="npr. 0.05, 0.08, 0.16"
-                                onkeyup="this.value = this.value.replace(/[^0-9\,.\n]/g,'')">
+                                onkeyup="this.value = this.value.replace(/[^0-9\,.-]/g,'')">
                         </div>
                     </div>
                 </div>
