@@ -88,15 +88,6 @@
                 </div>
             </div>
 
-            <!--                 <div class="col" style="flex:0 0 0;">
-                    <textarea name="plotdata" id="plotdata" rows="10" cols="20" placeholder="Vnesi podatke v obliki:
-                x, y
-                1, 2
-                2, 4
-                3, 6" onkeyup="this.value = this.value.replace(/[^0-9\,\n]/g,'')" style="margin: 20px;"></textarea>
-                </div>
- -->
-
             <div class="container">
                 <div class="row align-items-center">
                     <div class="row-sm row-md col-lg-7 col-xl-7 col-xxl-7">
@@ -140,7 +131,6 @@
                                     value="{{linewidth}}" oninput="this.form.linewidthInput.value=this.value" />
                             </div>
                         </div>
-
 
                         <div class="row mb-3 align-items-center">
                             <label for="fontsize"

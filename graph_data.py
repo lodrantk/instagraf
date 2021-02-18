@@ -4,7 +4,6 @@ from matplotlib import rc
 from matplotlib import rcParams
 from uuid import uuid4
 from asteval import Interpreter
-from matplotlib.ticker import ScalarFormatter
 from scipy.optimize import curve_fit
 
 
@@ -44,13 +43,9 @@ def graph_data(plotdatax, plotdatay, hasxerror, xerror, hasyerror, yerror, title
         plt.scatter(x, y, color=markercolor, marker=marker)
 
     if hasxerror == "on":
-        if hasyerror == "on":
-            plt.errorbar(x, y, xerr=xerr, yerr=yerr, color=markercolor,
+        plt.errorbar(x, y, xerr=xerr, color=markercolor,
                          marker=marker, linestyle="")
-        else:
-            plt.errorbar(x, y, xerr=xerr, color=markercolor,
-                         marker=marker, linestyle="")
-    elif hasyerror == "on":
+    if hasyerror == "on":
         plt.errorbar(x, y, yerr=yerr, color=markercolor,
                      marker=marker, linestyle="")
 
@@ -67,6 +62,8 @@ def graph_data(plotdatax, plotdatay, hasxerror, xerror, hasyerror, yerror, title
             fitpar[0], fitcov[0][0]**0.5, fitpar[1], fitcov[1][1]**0.5)
         plt.plot(x, k*x + n, linewidth=linewidth,
                  color=fitcolor, label=label, zorder=-5)
+        if legend == "on":
+            plt.legend(loc="best")
 
     plt.xlabel(str(xlabel))
     plt.ylabel(str(ylabel))
@@ -74,8 +71,6 @@ def graph_data(plotdatax, plotdatay, hasxerror, xerror, hasyerror, yerror, title
     if title != None:
         plt.title(str(title))
 
-    if legend == "on":
-        plt.legend(loc="best")
     if grid == "on":
         plt.grid()
 

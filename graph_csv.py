@@ -5,7 +5,6 @@ from matplotlib import rc
 from matplotlib import rcParams
 from pandas import read_csv
 from scipy.optimize import curve_fit
-from matplotlib.ticker import ScalarFormatter
 
 def get_data(uploadfile, hasheader):
     if hasheader != "on":
@@ -57,6 +56,8 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
             fitpar[0], fitcov[0][0]**0.5, fitpar[1], fitcov[1][1]**0.5)
         plt.plot(x, k*x + n, linewidth=linewidth,
                  c=fitcolor, label=label, zorder=-5)
+        if legend == "on":
+            plt.legend(loc="best")
     
 
     if hasheader == "on":
@@ -69,8 +70,6 @@ def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
     if title != None:
         plt.title(str(title))
 
-    if legend == "on":
-        plt.legend(loc="best")
     if grid == "on":
         plt.grid()
 

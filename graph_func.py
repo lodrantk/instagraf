@@ -4,8 +4,6 @@ from matplotlib import rc
 from matplotlib import rcParams
 from uuid import uuid4
 from asteval import Interpreter
-from matplotlib.ticker import ScalarFormatter
-
 
 def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, linewidth, fontsize, linestyle, grid, usetex):
     plt.clf()
@@ -14,11 +12,6 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
 
-    """
-    - plot multiple functions at once ... ?
-    - č, š, ž?
-    """
-
     #change default font
     rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})
 
@@ -26,18 +19,12 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
         rc('font', **{'family': 'serif', 'serif': ['Latin Modern Roman']})
         rc("text", usetex=True)
 
-    #set domain
     if xmin == "" or xmax == "":
         x = np.linspace(0, 5, 100000)
     else:
         # both limits need to be set!
         x = np.linspace(float(xmin), float(xmax), 100000) #how can I properly set the precision??
     
-    """
-    #set y-limits
-    if ymin != None and ymax != None:
-        plt.ylim(float(ymin), float(ymax))
-    """
     # evaluate function in a not evil way
     aevalc = Interpreter()
     expr = aevalc.parse(function.strip())
@@ -48,7 +35,6 @@ def graph_func(function, xmin, xmax, title, legend, xlabel, ylabel, linecolor, l
     plt.plot(x, y, linewidth=linewidth, color=linecolor,
              linestyle=linestyle, label=function)
     
-    #add axis labels, title, legend and grid
     plt.ylabel(str(ylabel))
     plt.xlabel(str(xlabel))
 

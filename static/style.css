@@ -119,17 +119,6 @@ img {
     outline: none;
 }
 
-.invalid-feedback .nofile {
-    display: flex;
-    justify-content: center;
-    padding: 20px 20px 20px;
-    line-height: 50px;
-    font-size: 18px;
-    font-weight: 400;
-    color: #ffffff;
-    background: transparent;
-    outline: none;
-}
 
 .buttons button:hover, .buttons label:hover {
     background: rgb(0, 128, 255);
@@ -202,8 +191,6 @@ input[type=number] {
     resize: vertical;
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-
 .slider::-webkit-slider-thumb {
     appearance: none;
     width: 25px;
@@ -229,7 +216,7 @@ input[type=number] {
     background-color: dodgerblue;
 }
 
-input[type=text]:focus, input[type=text]:hover, input[type=number]:hover, .slider:hover, .form-select:hover, .form-check-input:hover {
+input[type=text]:focus, input[type=text]:hover, input[type=number]:hover, .slider:hover, .form-select:hover, .form-check-input:hover{
     opacity: 1;
 }
 

@@ -1,9 +1,8 @@
 import bottle
 from bottle import request, get, static_file
 from graph_func import graph_func
-from graph_csv import graph_csv, get_data
+from graph_csv import graph_csv
 from graph_data import graph_data
-from pandas import read_csv
 import os
 
 # create directory 'output' for saved figures
@@ -103,11 +102,7 @@ def graph():
 def graphcsv():
     uploadfile = request.files.get('uploadfile')
     hasheader = request.forms.get("hasheader")
-    """
-    name, ext = os.path.splitext(uploadfile.filename)
-    if ext not in ('.csv'):
-        return 'Izbrana datoteka ni ustrezna.'
-    """
+
     title = request.forms.get("title")
     xlabel = request.forms.get("xlabel")
     ylabel = request.forms.get("ylabel")

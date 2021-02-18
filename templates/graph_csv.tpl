@@ -10,7 +10,6 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style.css" type="text/css">
 
-
     <title>Instagraf</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -284,9 +283,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 </body>
 
