@@ -95,13 +95,16 @@ def graph():
                         linecolor, linewidth, fontsize, linestyle, grid, usetex)
         return bottle.template("templates/graph_func.tpl", errormessage="", name=name, function=function, title=title, xmin=xmin, xmax=xmax, legend=(legend == "on"), ylabel=ylabel, xlabel=xlabel, linecolor=linecolor, linewidth=linewidth, fontsize=fontsize, linestyle=linestyle, grid=grid, usetex=usetex)
     except Exception:
-        errormessage = "Vnešeni podatki niso ustrezni."
+        errormessage = "Vnešena formula ni ustrezna."
         return bottle.template("templates/graph_func.tpl", errormessage=errormessage, name="error_image", function=function, title=title, xmin=xmin, xmax=xmax, legend=(legend == "on"), ylabel=ylabel, xlabel=xlabel, linecolor=linecolor, linewidth=linewidth, fontsize=fontsize, linestyle=linestyle, grid=grid, usetex=usetex)
     
 @bottle.post('/graph_csv')
 def graphcsv():
     uploadfile = request.files.get('uploadfile')
     hasheader = request.forms.get("hasheader")
+
+    xdata = request.forms.get("xdata")
+    ydata = request.forms.get("ydata")
 
     title = request.forms.get("title")
     xlabel = request.forms.get("xlabel")
@@ -124,12 +127,11 @@ def graphcsv():
 
     try:
         name = graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
-                     linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader)
-        return bottle.template("templates/graph_csv.tpl", errormessage="", name=name, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
+                     linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader, xdata, ydata)
+        return bottle.template("templates/graph_csv.tpl", errormessage="", name=name, xdata=xdata, ydata=ydata, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
     except Exception:
-        errormessage="Izbrana datoteka ni ustrezna."
-        return bottle.template("templates/graph_csv.tpl", errormessage=errormessage, name="error_image", title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
-
+        errormessage="Izbrana datoteka ni ustrezna ali izbrani stolpci ne obstajajo."
+        return bottle.template("templates/graph_csv.tpl", errormessage=errormessage, name="error_image", xdata=xdata, ydata=ydata, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
 
 @bottle.post('/graph_data')
 def graphdata():
@@ -169,4 +171,4 @@ def graphdata():
         errormessage="Vnešeni podatki niso ustrezni."
         return bottle.template("templates/graph_data.tpl", errormessage=errormessage, hasxerror=hasxerror, hasyerror=hasyerror, xerror=xerror, yerror=yerror, plotdatay=plotdatay, plotdatax=plotdatax, name="error_image", title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor)
 
-bottle.run(debug=True, host="0.0.0.0", port=80, reloader=True)
+bottle.run(debug=True, reloader=True)
