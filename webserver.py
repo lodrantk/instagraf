@@ -105,6 +105,7 @@ def graphcsv():
 
     xdata = request.forms.get("xdata")
     ydata = request.forms.get("ydata")
+    delimiter = request.forms.get("delimiter")
 
     title = request.forms.get("title")
     xlabel = request.forms.get("xlabel")
@@ -127,11 +128,11 @@ def graphcsv():
 
     try:
         name = graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend,
-                     linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader, xdata, ydata)
-        return bottle.template("templates/graph_csv.tpl", errormessage="", name=name, xdata=xdata, ydata=ydata, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
+                     linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader, xdata, ydata, delimiter)
+        return bottle.template("templates/graph_csv.tpl", errormessage="", name=name, delimiter=delimiter,xdata=xdata, ydata=ydata, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
     except Exception:
         errormessage="Izbrana datoteka ni ustrezna ali izbrani stolpci ne obstajajo."
-        return bottle.template("templates/graph_csv.tpl", errormessage=errormessage, name="error_image", xdata=xdata, ydata=ydata, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
+        return bottle.template("templates/graph_csv.tpl", errormessage=errormessage, name="error_image", delimiter=delimiter, xdata=xdata, ydata=ydata, title=title, xlabel=xlabel, ylabel=ylabel, fontsize=fontsize, grid=grid, usetex=usetex, legend=legend, linestyle=linestyle, linewidth=linewidth, linecolor=linecolor, marker=marker, markercolor=markercolor, linefit=linefit, fitcolor=fitcolor, hasheader=hasheader)
 
 @bottle.post('/graph_data')
 def graphdata():
