@@ -6,27 +6,30 @@ from matplotlib import rcParams
 from pandas import read_csv
 from scipy.optimize import curve_fit
 
-def get_data(uploadfile, hasheader):
+def get_data(uploadfile, hasheader, xdata, ydata):
+    xdata = int(xdata) - 1
+    ydata = int(ydata) - 1
     if hasheader != "on":
         dat = read_csv(uploadfile.file, header=None)
     else:
         dat = read_csv(uploadfile.file)
 
     data = dat.to_numpy()
-    x = data[:, 0]
-    y = data[:, 1]
-    xlabel = list(dat.columns)[0]
-    ylabel = list(dat.columns)[1]
+    x = data[:, xdata]
+    y = data[:, ydata]
+
+    xlabel = list(dat.columns)[xdata]
+    ylabel = list(dat.columns)[ydata]
 
     return x, y, xlabel, ylabel
     
-def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader):
+def graph_csv(uploadfile, title, xlabel, ylabel, fontsize, grid, usetex, legend, linestyle, linecolor, linewidth, marker, markercolor, linefit, fitcolor, hasheader, xdata, ydata):
     plt.clf()
     rcParams['font.size'] = fontsize
     rcParams['xtick.labelsize'] = fontsize
     rcParams['ytick.labelsize'] = fontsize
 
-    x, y, xlabel_head, ylabel_head = get_data(uploadfile, hasheader)
+    x, y, xlabel_head, ylabel_head = get_data(uploadfile, hasheader, xdata, ydata)
 
     # default font (sans-serif)
     rc('font', **{'family': 'sans-serif', 'sans-serif': ['Arial']})

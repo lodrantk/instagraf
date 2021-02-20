@@ -66,6 +66,25 @@
                                 document.querySelector("#file-name").textContent = this.files[0].name;
                             }
                         </script>
+
+                        <div class="row mb-3 align-items-center">
+                            <label for="xdata"
+                                class="row-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5 control-label col-form-label">podatki za x os so v stolpcu št.: </label>
+                            <div class="col-4 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+                                <input type="number" class="form-control" id="xdata" name="xdata" min="1"
+                                    max="40" value="1" step="1"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <label for="ydata"
+                                class="row-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5 control-label col-form-label">podatki za y os so v stolpcu št.: </label>
+                            <div class="col-4 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+                                <input type="number" class="form-control" id="ydata" name="ydata" min="1"
+                                    max="40" value="2" step="1"/>
+                            </div>
+                        </div>
+
                         <div class="row mb-3">
                             <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
                                 grafa </label>
@@ -118,41 +137,6 @@
                             <div class="col-8 col-sm-8 col-md-6 col-lg-7 col-xl-7 col-xxl-7">
                                 <input type="range" class="slider" name="fontsizeRange" min="10" max="40" value="18"
                                     oninput="this.form.fontsizeInput.value=this.value" />
-                            </div>
-                        </div>
-
-                        <div class="row mb-3 align-items-center">
-                            <div class="col-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                <label for="linestyle">tip črte</label>
-                            </div>
-                            <div class="col-8 col-md col-lg col-xl col-xxl">
-                                <select class="form-select" name="linestyle" id="linestyle">
-
-                                    <option value="" selected>brez</option>
-                                    <option value="-">polna</option>
-                                    <option value="--">črtkana
-                                    </option>
-                                    <option value=":">pike</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3 align-items-center">
-                            <div class="col-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                                <label for="linestyle">tip oznake</label>
-                            </div>
-                            <div class="col-8 col-md col-lg col-xl col-xxl">
-                                <select class="form-select" name="marker" id="marker">
-                                    <option value="">brez</option>
-                                    <option value=".">pika</option>
-                                    <option value="o" selected>krožec</option>
-                                    <option value="x">križec</option>
-                                    <option value="+">plus</option>
-                                    <option value="s">kvadrat</option>
-                                    <option value="^">trikotnik</option>
-                                    <option value="D">romb</option>
-                                    <option value="*">zvezdica</option>
-                                </select>
                             </div>
                         </div>
 
@@ -257,10 +241,45 @@
                             </div>
 
                             <div class="col-9">
-                                <label for="markercolor" class="form-label">barva oznak točk</label>
-
+                                <label for="markercolor" class="form-label">barva oznak</label>
                             </div>
                         </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                                <label for="linestyle">tip črte</label>
+                            </div>
+                            <div class="col-8 col-md col-lg col-xl col-xxl">
+                                <select class="form-select" name="linestyle" id="linestyle">
+
+                                    <option value="" selected>brez</option>
+                                    <option value="-">polna</option>
+                                    <option value="--">črtkana
+                                    </option>
+                                    <option value=":">pike</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                                <label for="linestyle">tip oznake</label>
+                            </div>
+                            <div class="col-8 col-md col-lg col-xl col-xxl">
+                                <select class="form-select" name="marker" id="marker">
+                                    <option value="">brez</option>
+                                    <option value=".">pika</option>
+                                    <option value="o" selected>krožec</option>
+                                    <option value="x">križec</option>
+                                    <option value="+">plus</option>
+                                    <option value="s">kvadrat</option>
+                                    <option value="^">trikotnik</option>
+                                    <option value="D">romb</option>
+                                    <option value="*">zvezdica</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
