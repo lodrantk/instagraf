@@ -8,5 +8,6 @@ bottle = "*"
 numpy = "*"
 asteval = "*"
 matplotlib = "*"
+scipy = "*"
 pandas = "*"
-
+uuid = "*"
