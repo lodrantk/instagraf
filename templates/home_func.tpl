@@ -62,7 +62,7 @@
                             <label for="title" class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">naslov
                                 grafa </label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="title" name="title" value="">
+                                <input type="text" class="form-control" id="title" name="title">
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                                 class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">oznaka x
                                 osi</label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="xlabel" name="xlabel" value="">
+                                <input type="text" class="form-control" id="xlabel" name="xlabel" value="x">
                             </div>
                         </div>
 
@@ -80,7 +80,7 @@
                                 class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">oznaka y
                                 osi</label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="ylabel" name="ylabel" value="">
+                                <input type="text" class="form-control" id="ylabel" name="ylabel" value="y">
                             </div>
                         </div>
 
