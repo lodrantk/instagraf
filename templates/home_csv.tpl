@@ -14,7 +14,6 @@
     <title>Instagraf</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
         integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
         crossorigin="anonymous"></script>
@@ -85,11 +84,18 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="delimiter"
-                                class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">stolpci so ločeni z: </label>
-                            <div class="col-4 col-md-2 col-lg-2 col-xl-2 col-xxl-2l">
-                                <input type="text" class="form-control" id="delimiter" name="delimiter" value=",">
+                        <div class="row mb-3 align-items-center">
+                            <div class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">
+                                <label for="delimiter">stolpci so ločeni:</label>
+                            </div>
+                            <div class="row-sm col-md col-lg col-xl col-xxl">
+                                <select class="form-select" name="delimiter" id="delimiter">
+                                    <option value="," selected>z vejico: ,</option>
+                                    <option value="\s+">s presledki</option>
+                                    <option value=";">s podpičjem: ;
+                                    </option>
+                                    <option value="|">s črto: |</option>
+                                </select>
                             </div>
                         </div>
 
@@ -106,7 +112,7 @@
                                 class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">oznaka x
                                 osi</label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="xlabel" name="xlabel" value="">
+                                <input type="text" class="form-control" id="xlabel" name="xlabel" value="x">
                             </div>
                         </div>
 
@@ -115,7 +121,7 @@
                                 class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">oznaka y
                                 osi</label>
                             <div class="row-sm col-md col-lg col-xl col-xxl">
-                                <input type="text" class="form-control" id="ylabel" name="ylabel" value="">
+                                <input type="text" class="form-control" id="ylabel" name="ylabel" value="y">
                             </div>
                         </div>
 

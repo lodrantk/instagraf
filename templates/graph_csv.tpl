@@ -103,11 +103,18 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="delimiter"
-                                class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">stolpci so ločeni z: </label>
-                            <div class="col-4 col-md-2 col-lg-2 col-xl-2 col-xxl-2l">
-                                <input type="text" class="form-control" id="delimiter" name="delimiter" value=",">
+                        <div class="row mb-3 align-items-center">
+                            <div class="row-sm col-md-3 col-lg-3 col-xl-3 col-xxl-3 col-form-label">
+                                <label for="delimiter">stolpci so ločeni:</label>
+                            </div>
+                            <div class="row-sm col-md col-lg col-xl col-xxl">
+                                <select class="form-select" name="delimiter" id="delimiter">
+                                    <option value="," {{"selected" if delimiter=="," else "" }} >z vejico: ,</option>
+                                    <option value="\s+" {{"selected" if delimiter=="\s+" else "" }}>s presledki</option>
+                                    <option value=";" {{"selected" if delimiter==";" else "" }}>s podpičjem: ;
+                                    </option>
+                                    <option value="|" {{"selected" if delimiter=="|" else "" }}>s črto: |</option>
+                                </select>
                             </div>
                         </div>
 
