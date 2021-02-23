@@ -5,7 +5,7 @@ A website that generates pretty graphs from mathematical formulas f(x), manually
 Projekt pri predmetu Računalništvo (Fizika, 2. letnik, FMF UL).
 
 ## Setup
-To run Instagraf locally and observe it's current condition:
+To run Instagraf locally:
 
 Make sure you have pipenv installed (or run `pip install pipenv`). 
 
@@ -42,16 +42,10 @@ So are some style features:
     * fit straght line to data and get parameters
 
 **To-do list:**
-* FORM VALIDATION: ... at the moment it is all done _server-side_, except for item (i.). If any of the functions for generating plots return ANY error (Exception), a simple error message is displayed at the bottom of the form.
-    1. validate that file is uploaded (client-side)
-    2. validate that file is in fact `.csv` and that data in chosen columns is plottable (no double commas)
-    3. validate input formula
-    4. validate input data (equal lengths of all data sets)
-... all other input fields should be fool-proof. 
-
-* function plot precision? ... at the moment fixed at 100000 points between x_min and _max.
+* custom error-messages for csv: (1) is the file corrupt, (2) was the wrong delimiter chosen, (3) do chosen columns not exist
 * add _toolbar_ to help write function expressions: `^ -> **`, `x -> *` ... at the moment solved with a tooltip
-
+* code formatting
+* functions for plots are very similar (similar code) ... could do: class Graph!
 
 ## Status
-My project is: _in progress_.
+My project is: _pretty much done_.
