@@ -20,6 +20,7 @@ def graph_data(
     fontsize,
     grid,
     usetex,
+    legend,
     linestyle,
     linecolor,
     linewidth,
@@ -29,6 +30,7 @@ def graph_data(
     fitcolor,
 ):
     plt.clf()
+    plt.rcdefaults()
     rcParams["font.size"] = fontsize
     rcParams["xtick.labelsize"] = fontsize
     rcParams["ytick.labelsize"] = fontsize

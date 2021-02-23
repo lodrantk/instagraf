@@ -47,6 +47,7 @@ def graph_csv(
     delimiter,
 ):
     plt.clf()
+    plt.rcdefaults()
     rcParams["font.size"] = fontsize
     rcParams["xtick.labelsize"] = fontsize
     rcParams["ytick.labelsize"] = fontsize

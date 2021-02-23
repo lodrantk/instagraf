@@ -9,7 +9,7 @@ import os
 if not os.path.exists("output"):
     os.makedirs("output")
 
-    
+
 @get("/")
 def homepage():
     return bottle.template("templates/index.tpl")
@@ -281,6 +281,7 @@ def graphdata():
             linefit,
             fitcolor,
         )
+
         return bottle.template(
             "templates/graph_data.tpl",
             errormessage="",
