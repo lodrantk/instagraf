@@ -21,15 +21,15 @@ def stylesheets(filename):
 def homefunc():
     return bottle.template("templates/home_func.tpl")
 
-@get('/graph_func/<filename>.png')
-def pngfunc(filename):
+@get('/graph_png/<filename>.png')
+def png(filename):
     if filename == "error_image":
         return static_file('{}.png'.format(filename), root='static')
     else:
         return static_file('{}.png'.format(filename), root='output')
 
-@get('/graph_func/<filename>.pdf')
-def pdffunc(filename):
+@get('/graph_pdf/<filename>.pdf')
+def pdf(filename):
     if filename == "error_image":
         return static_file('{}.pdf'.format(filename), root='static')
     else:
@@ -39,37 +39,9 @@ def pdffunc(filename):
 def homecsv():
     return bottle.template("templates/home_csv.tpl")
 
-@get('/graph_csv/<filename>.png')
-def pngcsv(filename):
-    if filename == "error_image":
-        return static_file('{}.png'.format(filename), root='static')
-    else:
-        return static_file('{}.png'.format(filename), root='output')
-
-@get('/graph_csv/<filename>.pdf')
-def pdfcsv(filename):
-    if filename == "error_image":
-        return static_file('{}.pdf'.format(filename), root='static')
-    else:
-        return static_file('{}.pdf'.format(filename), root='output')
-
 @get('/home_data')
 def homedata():
     return bottle.template("templates/home_data.tpl")
-
-@get('/graph_data/<filename>.png')
-def pngdata(filename):
-    if filename == "error_image":
-        return static_file('{}.png'.format(filename), root='static')
-    else:
-        return static_file('{}.png'.format(filename), root='output')
-
-@get('/graph_data/<filename>.pdf')
-def pdfdata(filename):
-    if filename == "error_image":
-        return static_file('{}.pdf'.format(filename), root='static')
-    else:
-        return static_file('{}.pdf'.format(filename), root='output')
 
 @get('/static/<filename>.jpg') #for background image
 def jpgimg(filename):

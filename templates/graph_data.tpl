@@ -32,22 +32,21 @@
         <div class="row justify-content-center " style="padding: 20px;">
             <h1 class="display-1">tvoj instagraf</h1>
         </div>
-        <div id="showimage">
             <div class="row align-items-center">
                 <div>
-                    <img src="graph_data/{{name}}.png" alt="slika-grafa" style="height:400px;">
+                    <img src="graph_png/{{name}}.png" alt="slika grafa" style="height:400px;">
                 </div>
             </div>
             <div class="row align-items-center">
                 <div class="buttons">
-                    <a href="graph_data/{{name}}.pdf" download="moj_instagraf">
+                    <a href="graph_pdf/{{name}}.pdf" download="moj_instagraf">
                         <button>prenesi .pdf</button>
                     </a>
-                    <a href="graph_data/{{name}}.png" download="moj_instagraf">
+                    <a href="graph_png/{{name}}.png" download="moj_instagraf">
                         <button class="btn2">prenesi .png</button></a>
                 </div>
             </div>
-        </div>
+
 
         <form method="POST" action="/graph_data" enctype="multipart/form-data">
             <div class="container plotdata" style="background: none;">

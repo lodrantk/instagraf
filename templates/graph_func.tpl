@@ -45,21 +45,19 @@
                 $('[data-toggle="tooltip"]').tooltip();
             });
         </script>
-        <div id="showimage">
 
-            <div class="row align-items-center">
-                <div>
-                    <img src="graph_func/{{name}}.png" alt="slika grafa" style="height:400px;">
-                </div>
+        <div class="row align-items-center">
+            <div>
+                <img src="graph_png/{{name}}.png" alt="slika grafa" style="height:400px;">
             </div>
-            <div class="row align-items-center">
-                <div class="buttons">
-                    <a href="graph_func/{{name}}.pdf" download="moj_instagraf">
-                        <button>prenesi .pdf</button>
-                    </a>
-                    <a href="graph_func/{{name}}.png" download="moj_instagraf">
-                        <button class="btn2">prenesi .png</button></a>
-                </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="buttons">
+                <a href="graph_pdf/{{name}}.pdf" download="moj_instagraf">
+                    <button>prenesi .pdf</button>
+                </a>
+                <a href="graph_png/{{name}}.png" download="moj_instagraf">
+                    <button class="btn2">prenesi .png</button></a>
             </div>
         </div>
     </div>
@@ -76,8 +74,8 @@
                         </div>
                         <div class="row-sm col-md col-lg col-xl col-xxl">
 
-                            <input type="text" class="form-control" id="function" name="function"
-                                value="{{function}}" required>
+                            <input type="text" class="form-control" id="function" name="function" value="{{function}}"
+                                required>
                         </div>
                     </div>
 
