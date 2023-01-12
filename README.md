@@ -38,7 +38,7 @@ So are some style features:
 * customize your plots: 
     * change line and marker types, marker and line color, linewidth, fontsize ...
     * display legend and/or grid
-    * use Latex notation (ex. $\frac{U_0}{I_max}$) in the plot title and axis labels
+    * use Latex notation (ex. $\frac{U_0}{I_{max}}$) in the plot title and axis labels
     * fit straght line to data and get parameters
 
 **To-do list:**
